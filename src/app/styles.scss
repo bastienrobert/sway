@@ -5,15 +5,12 @@
   }
 
   // Only for test
+  html,
   body {
-    min-height: 100vh;
+    overflow: hidden;
   }
 
-  .page {
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-    opacity: 0;
-    font-family: sans-serif;
+  body {
+    min-height: 100vh;
   }
 }

@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-
-import Router from './Router'
-import routes from './routes'
 import 'values'
 
 import 'reset-css'
@@ -11,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router {...routes} />
+        <h1>Hello</h1>
       </div>
     )
   }
