@@ -1,0 +1,11 @@
+.Link {
+  color: #fff;
+  text-decoration: none;
+
+  &.button {
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 8px 15px;
+    margin: 10px;
+  }
+}

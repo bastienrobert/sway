@@ -4,8 +4,16 @@
     -webkit-text-size-adjust: none;
   }
 
-  html,
+  // Only for test
   body {
+    min-height: 100vh;
+  }
+
+  .page {
+    position: absolute;
+    width: 100%;
     overflow: hidden;
+    opacity: 0;
+    font-family: sans-serif;
   }
 }
