@@ -4,15 +4,15 @@ import { TweenMax, Linear } from 'gsap/all'
 
 import css from './styles.scss'
 
-export default class PageLoader extends Component {
+export default class Loader extends Component {
   componentDidMount() {
-    Emitter.on('pageLoader:start', this.start)
-    Emitter.on('pageLoader:stop', this.stop)
+    Emitter.on('loader:start', this.start)
+    Emitter.on('loader:stop', this.stop)
   }
 
   componentWillUnmount() {
-    Emitter.off('pageLoader:start', this.start)
-    Emitter.off('pageLoader:stop', this.stop)
+    Emitter.off('loader:start', this.start)
+    Emitter.off('loader:stop', this.stop)
   }
 
   start = () => {
@@ -31,7 +31,7 @@ export default class PageLoader extends Component {
 
   render() {
     return (
-      <div className={css.PageLoader}>
+      <div className={css.Loader}>
         <div ref={el => (this.bar = el)} className={css.progressBar} />
       </div>
     )
