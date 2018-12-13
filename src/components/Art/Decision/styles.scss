@@ -1,0 +1,17 @@
+.Decision {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .choices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -11,6 +11,8 @@ class Values {
     const devicePixelRatio = window.devicePixelRatio
     this.ratio = devicePixelRatio >= 2 ? 2 : devicePixelRatio
 
+    this.locale = 'fr'
+
     this.viewport = {
       width: 0,
       height: 0
