@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-
-import Router from './Router'
-import routes from './routes'
 import 'values'
+
+import Art from 'components/Art'
 
 import 'reset-css'
 import './styles.scss'
 
 class App extends Component {
   render() {
+    const oeuvre = 'sabine'
+
     return (
       <div className="App">
-        <Router {...routes} />
+        <Art oeuvre={oeuvre} />
       </div>
     )
   }
