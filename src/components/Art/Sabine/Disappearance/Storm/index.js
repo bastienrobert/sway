@@ -1,20 +1,13 @@
-/**
- * INTRODUCTION
- */
-
 import { TimelineMax } from 'gsap/all'
 
-export default class Intro {
+export default class Storm {
   constructor(refs, introIsOver, pendingIsOver) {
     this.refs = refs
     this.introIsOver = introIsOver
     this.pendingIsOver = pendingIsOver
     this.pauseOnPendingComplete = false
     this.initIntroTL()
-  }
-
-  play() {
-    this.introTL.play()
+    this.initPendingTL()
   }
 
   initIntroTL() {
@@ -24,20 +17,20 @@ export default class Intro {
       this.refs.cube,
       2,
       {
-        x: 0
+        y: 0
       },
       {
-        x: 100,
+        y: 100,
         onComplete: () => {
-          this.initPendingTL()
           this.introIsOver()
+          this.pendingTL.play()
         }
       }
     )
   }
 
   initPendingTL() {
-    this.pendingTL = new TimelineMax({ repeat: -1, yoyo: true })
+    this.pendingTL = new TimelineMax({ paused: true, repeat: -1, yoyo: true })
 
     this.pendingTL.fromTo(
       this.refs.cube,
@@ -46,22 +39,20 @@ export default class Intro {
         rotation: 0
       },
       {
-        rotation: 90,
-        onReverseComplete: () => {
-          if (this.pauseOnPendingComplete) {
+        rotation: 45,
+        onComplete: () => {
+          if (this.pauseOnPendingComplete !== false) {
             this.pendingTL.pause()
             this.pendingIsOver()
           }
         },
-        onComplete: () => {
-          if (this.pauseOnPendingComplete) {
+        onReverseComplete: () => {
+          if (this.pauseOnPendingComplete !== false) {
             this.pendingTL.pause()
             this.pendingIsOver()
           }
         }
       }
     )
-
-    this.pendingTL.play()
   }
 }
