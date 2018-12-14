@@ -1,5 +1,5 @@
 import Emitter from 'utils/Emitter'
-import FontFaceObserver from 'fontfaceobserver'
+// import FontFaceObserver from 'fontfaceobserver'
 
 class Values {
   constructor() {
@@ -10,6 +10,8 @@ class Values {
   init() {
     const devicePixelRatio = window.devicePixelRatio
     this.ratio = devicePixelRatio >= 2 ? 2 : devicePixelRatio
+
+    this.locale = 'fr'
 
     this.viewport = {
       width: 0,

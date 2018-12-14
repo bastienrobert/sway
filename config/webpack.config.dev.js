@@ -112,9 +112,8 @@ module.exports = {
       app: path.resolve(paths.appSrc, 'app'),
       assets: path.resolve(paths.appSrc, 'assets'),
       components: path.resolve(paths.appSrc, 'components'),
-      pages: path.resolve(paths.appSrc, 'pages'),
-      router: path.resolve(paths.appSrc, 'app/Router'),
       utils: path.resolve(paths.appSrc, 'utils'),
+      locales: path.resolve(paths.appSrc, 'locales'),
       values: path.resolve(paths.appSrc, 'values')
     },
     plugins: [
