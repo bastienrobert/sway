@@ -14,6 +14,11 @@ export default class Decision extends Component {
     this.tl.play()
   }
 
+  componentShouldBeVisible() {
+    this.userAction = true
+    this.tl.play(0)
+  }
+
   initTL() {
     this.tl = new TimelineMax({ paused: true })
 
@@ -21,16 +26,15 @@ export default class Decision extends Component {
       this.refs.component,
       0.7,
       {
-        opacity: 0
+        autoAlpha: 0
       },
       {
-        opacity: 1
+        autoAlpha: 1
       }
     )
   }
 
   onMouseEnter = choice => {
-    if (!this.userAction) return
     this.props.onSelect(choice)
   }
 

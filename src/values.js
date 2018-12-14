@@ -1,5 +1,5 @@
 import Emitter from 'utils/Emitter'
-import FontFaceObserver from 'fontfaceobserver'
+// import FontFaceObserver from 'fontfaceobserver'
 
 class Values {
   constructor() {

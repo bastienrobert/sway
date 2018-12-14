@@ -71,7 +71,7 @@ export default class Choice extends Component {
             ref="jauge"
             className={css.progress}
             transform="rotate(-90 50 50)"
-            strokeDasharray="200 305"
+            strokeDasharray="0 305"
             r="48.5"
             cx="50"
             cy="50"

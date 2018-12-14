@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import datas from './datas'
 import 'values'
 
 import Art from 'components/Art'
@@ -9,11 +8,11 @@ import './styles.scss'
 
 class App extends Component {
   render() {
-    const oeuvre = datas.sabine
+    const oeuvre = 'sabine'
 
     return (
       <div className="App">
-        <Art {...oeuvre} />
+        <Art oeuvre={oeuvre} />
       </div>
     )
   }
