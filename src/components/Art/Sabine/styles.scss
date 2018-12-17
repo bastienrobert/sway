@@ -1,7 +1,45 @@
 .Sabine {
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    z-index: -1;
+  }
+
   .cube {
     background-color: #000;
     width: 80px;
     height: 80px;
+    opacity: 0;
+  }
+
+  .stormOcean {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: 1;
+
+    div {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    .stormOceanBackground {
+      background-image: url(assets/sabine/disappearance/storm/ocean.png);
+    }
+
+    .stormOceanHighlight {
+      background-image: url(assets/sabine/disappearance/storm/oceanHighlight.png);
+    }
+
+    .stormOceanOverlay {
+      background-image: url(assets/sabine/disappearance/storm/oceanOverlay.png);
+    }
   }
 }
