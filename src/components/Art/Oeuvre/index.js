@@ -9,6 +9,7 @@ export default class Oeuvre extends Component {
   currentTLs = null
   previousTLs = null
   previousDecision = null
+  selected = null
 
   componentDidMount() {
     this.initTLs()
@@ -65,13 +66,13 @@ export default class Oeuvre extends Component {
   }
 
   decisionSelected = choice => {
-    if (!this.currentTLs.tls[this.selected]) return
+    if (!this.currentTLs.tls[choice]) return
     this.previousTLs.pauseOnPendingComplete = choice
     this.selected = choice
   }
 
   decisionCancelled = () => {
-    if (!this.selected) return
+    if (this.selected === null) return
     this.previousTLs.pauseOnPendingComplete = false
     if (this.previousTLs.tls[this.previousDecision].pendingTL.isActive()) return
     this.currentTLs.tls[this.selected].introTL.pause()
@@ -84,10 +85,17 @@ export default class Oeuvre extends Component {
     if (this.props.step < timelines.decisions.length) {
       this.props.nextStep(true)
     } else {
-      console.log('END - NEED TO STOP CURRENT TL AND PLAY OUTRO')
       this.props.nextStep()
-      // this.outro.introTL.play()
+      this.gameOver()
     }
+  }
+
+  gameOver() {
+    const lastDecision = this.props.decisions[this.props.decisions.length - 1]
+    if (!lastDecision) return
+    const choice = lastDecision.choice
+    this.previousTLs.pauseOnPendingComplete = choice
+    this.selected = 0
   }
 
   pendingIsOver = () => {

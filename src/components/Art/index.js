@@ -69,7 +69,10 @@ export default class Art extends Component {
         <Typography type="title" className={css.title}>
           <h1>{title}</h1>
         </Typography>
-        <button ref="getStarted" onClick={this.onGetStarted}>
+        <button
+          ref="getStarted"
+          className={css.getStarted}
+          onClick={this.onGetStarted}>
           Get started
         </button>
         <Component
