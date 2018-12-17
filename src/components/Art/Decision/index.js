@@ -30,12 +30,7 @@ export default class Decision extends Component {
       },
       {
         autoAlpha: 1,
-        onReverseComplete: () => {
-          this.choices.forEach(choice => {
-            choice.tl.pause()
-            choice.tl.time(0)
-          })
-        }
+        onReverseComplete: this.resetChoices.bind(this)
       }
     )
   }
@@ -53,6 +48,13 @@ export default class Decision extends Component {
     this.userAction = false
     this.props.onValidate(this.props.step, choice)
     this.tl.reverse()
+  }
+
+  resetChoices() {
+    this.choices.forEach(choice => {
+      choice.tl.restart()
+      choice.tl.pause()
+    })
   }
 
   render() {

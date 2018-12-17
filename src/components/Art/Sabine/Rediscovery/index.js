@@ -11,9 +11,8 @@ import Drown from './Drown'
 
 export default class Rediscovery extends TimelineController {
   initTLs() {
-    this.tls.push(new Drown(this.refs, this.introIsOver, this.pendingIsOver))
-    this.tls.push(new Drown(this.refs, this.introIsOver, this.pendingIsOver))
-    this.tls.push(new Drown(this.refs, this.introIsOver, this.pendingIsOver))
+    const drown = new Drown(this.refs, this.introIsOver, this.pendingIsOver)
+    this.tls = [drown, drown, drown]
   }
 
   set pauseOnPendingComplete(id) {

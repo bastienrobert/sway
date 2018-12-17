@@ -34,13 +34,13 @@ export default class Drown {
       {
         scale: 0.7,
         onComplete: () => {
-          if (this.pauseOnPendingComplete !== false) {
+          if (this.pauseOnPendingComplete) {
             this.pendingTL.pause()
             this.pendingIsOver()
           }
         },
         onReverseComplete: () => {
-          if (this.pauseOnPendingComplete !== false) {
+          if (this.pauseOnPendingComplete) {
             this.pendingTL.pause()
             this.pendingIsOver()
           }
