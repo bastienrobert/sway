@@ -4,4 +4,43 @@
     width: 80px;
     height: 80px;
   }
+  .stormClouds{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100vw;
+    div {
+      height:215px;
+      background-repeat: no-repeat;
+      position: absolute;
+      background-size:85%;
+    }
+    .stromCloudBrushSmallRight {
+      background-image: url("assets/disappearance/storm/cielvenere_ng1.png");
+    }
+    .stromCloudPointSmall {
+      background-image: url("assets/disappearance/storm/cielvenere_ng2.png");    
+    }
+    .stromCloudOrange {
+      background-image: url("assets/disappearance/storm/cielvenere_ng3.png");    
+    }
+    .stromCloudBrushSmallLeft {
+      background-image: url("assets/disappearance/storm/cielvenere_ng4.png");    
+    }
+    .stromCloudPointBig {
+      background-image: url("assets/disappearance/storm/cielvenere_ng5.png");    
+    }
+    .stromCloudBrushBigRight {
+      background-image: url("assets/disappearance/storm/cielvenere_ng6.png");    
+    }
+    .stromCloudBrushBigLeft {
+      background-image: url("assets/disappearance/storm/cielvenere_ng7.png");    
+    }
+    .stromCloudGrey{
+      background-image: url("assets/disappearance/storm/cielvenere_ng8.png");    
+    }
+    .stromCloudBlack {
+      background-image: url("assets/disappearance/storm/cielvenere_ng9.png");    
+    }
+  }
 }
