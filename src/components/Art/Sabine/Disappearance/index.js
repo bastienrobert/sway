@@ -11,9 +11,8 @@ import Storm from './Storm'
 
 export default class Disappearance extends TimelineController {
   initTLs() {
-    this.tls.push(new Storm(this.refs, this.introIsOver, this.pendingIsOver))
-    this.tls.push(new Storm(this.refs, this.introIsOver, this.pendingIsOver))
-    this.tls.push(new Storm(this.refs, this.introIsOver, this.pendingIsOver))
+    const storm = new Storm(this.refs, this.introIsOver, this.pendingIsOver)
+    this.tls = [storm, storm, storm]
   }
 
   set pauseOnPendingComplete(id) {

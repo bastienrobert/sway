@@ -41,13 +41,13 @@ export default class Storm {
       {
         rotation: 45,
         onComplete: () => {
-          if (this.pauseOnPendingComplete !== false) {
+          if (this.pauseOnPendingComplete) {
             this.pendingTL.pause()
             this.pendingIsOver()
           }
         },
         onReverseComplete: () => {
-          if (this.pauseOnPendingComplete !== false) {
+          if (this.pauseOnPendingComplete) {
             this.pendingTL.pause()
             this.pendingIsOver()
           }
