@@ -13,4 +13,8 @@ export default class TimelineController {
       'Override initTLs() method in your timeline controller to add new TLs to this.tls'
     )
   }
+
+  updateRefs(refs) {
+    this.tls.forEach(tl => (tl.refs = refs))
+  }
 }

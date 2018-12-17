@@ -50,6 +50,7 @@ export default class Oeuvre extends Component {
 
     this.previousTLs = this.currentTLs
     this.currentTLs = this.tls[this.props.step]
+    this.tls.forEach(tl => tl.updateRefs({ ...this.refs, ...this.references }))
   }
 
   get decision() {
