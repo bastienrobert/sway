@@ -29,7 +29,10 @@ export default class Decision extends Component {
         autoAlpha: 0
       },
       {
-        autoAlpha: 1
+        autoAlpha: 1,
+        onReverseComplete: () => {
+          this.choices.forEach(choice => choice.tl.time(0))
+        }
       }
     )
   }
@@ -50,6 +53,7 @@ export default class Decision extends Component {
   }
 
   render() {
+    this.choices = []
     const { title, choices } = this.props
 
     return (
@@ -62,6 +66,7 @@ export default class Decision extends Component {
             <Choice
               key={`choice-${i}`}
               id={i}
+              ref={el => el && this.choices.push(el)}
               onChoiceValidate={this.onChoiceValidate}
               onMouseEnter={this.onMouseEnter}
               onMouseLeave={this.onMouseLeave}

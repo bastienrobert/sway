@@ -10,6 +10,7 @@ export default class Oeuvre extends Component {
   previousTLs = null
   previousDecision = null
   selected = null
+  references = {}
 
   componentDidMount() {
     this.initTLs()
@@ -18,26 +19,20 @@ export default class Oeuvre extends Component {
   }
 
   initTLs() {
+    const refs = { ...this.refs, ...this.references }
+
     // Create INTRO
-    this.intro = new timelines.intro(
-      this.refs,
-      this.introIsOver,
-      this.pendingIsOver
-    )
+    this.intro = new timelines.intro(refs, this.introIsOver, this.pendingIsOver)
 
     // Create DECISIONS
     timelines.decisions.forEach(decision => {
       this.decisions.push(
-        new decision.timelines(this.refs, this.introIsOver, this.pendingIsOver)
+        new decision.timelines(refs, this.introIsOver, this.pendingIsOver)
       )
     })
 
     // Create OUTRO
-    this.outro = new timelines.outro(
-      this.refs,
-      this.introIsOver,
-      this.pendingIsOver
-    )
+    this.outro = new timelines.outro(refs, this.introIsOver, this.pendingIsOver)
 
     // All TLs
     this.tls = [this.intro, ...this.decisions, this.outro]
