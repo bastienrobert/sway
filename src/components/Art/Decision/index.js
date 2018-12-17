@@ -31,7 +31,10 @@ export default class Decision extends Component {
       {
         autoAlpha: 1,
         onReverseComplete: () => {
-          this.choices.forEach(choice => choice.tl.time(0))
+          this.choices.forEach(choice => {
+            choice.tl.pause()
+            choice.tl.time(0)
+          })
         }
       }
     )
