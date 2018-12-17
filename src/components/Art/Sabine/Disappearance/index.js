@@ -8,14 +8,12 @@
 import TimelineController from 'components/Art/TimelineController'
 
 import Storm from './Storm'
-import Decapitation from './Decapitation'
 
 export default class Disappearance extends TimelineController {
   initTLs() {
     this.tls.push(new Storm(this.refs, this.introIsOver, this.pendingIsOver))
-    this.tls.push(
-      new Decapitation(this.refs, this.introIsOver, this.pendingIsOver)
-    )
+    this.tls.push(new Storm(this.refs, this.introIsOver, this.pendingIsOver))
+    this.tls.push(new Storm(this.refs, this.introIsOver, this.pendingIsOver))
   }
 
   set pauseOnPendingComplete(id) {

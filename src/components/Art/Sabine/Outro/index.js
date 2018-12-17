@@ -15,33 +15,19 @@ export default class Outro extends TimelineController {
   initIntroTL() {
     this.introTL = new TimelineMax({ paused: true })
 
-    this.introTL.fromTo(
-      this.refs.cube,
-      2,
-      {
-        x: 0
-      },
-      {
-        x: 100,
-        onComplete: () => {
-          this.pendingTL.play()
-        }
+    this.introTL.to(this.refs.cube, 2, {
+      x: 100,
+      onComplete: () => {
+        this.pendingTL.play()
       }
-    )
+    })
   }
 
   initPendingTL() {
     this.pendingTL = new TimelineMax({ paused: true, repeat: -1, yoyo: true })
 
-    this.pendingTL.fromTo(
-      this.refs.cube,
-      2,
-      {
-        rotation: 0
-      },
-      {
-        rotation: 90
-      }
-    )
+    this.pendingTL.to(this.refs.cube, 2, {
+      rotation: 90
+    })
   }
 }
