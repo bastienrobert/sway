@@ -13,12 +13,15 @@ export default class Outro extends TimelineController {
   }
 
   initIntroTL() {
-    this.introTL = new TimelineMax({ paused: true })
+    this.introTL = new TimelineMax({
+      paused: true
+    })
 
     this.introTL.to(this.refs.cube, 2, {
       x: 100,
       onComplete: () => {
         this.pendingTL.play()
+        this.introIsOver()
       }
     })
   }

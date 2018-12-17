@@ -4,7 +4,7 @@ class RAF {
     this.requestAnimationID = null
     this.funcs = []
 
-    this.start()
+    // this.start()
   }
 
   /**
@@ -45,8 +45,10 @@ class RAF {
    * @param func
    */
   remove = func => {
-    this.funcs = this.funcs.map(f => f !== func)
-    if (this.funcs.length === 0) {
+    this.funcs = this.funcs.filter(f => {
+      return f !== func
+    })
+    if (this.funcs.length <= 0) {
       this.stop()
     }
   }

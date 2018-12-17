@@ -15,7 +15,13 @@ export default class Intro extends TimelineController {
   }
 
   initIntroTL() {
-    this.introTL = new TimelineMax({ paused: true })
+    this.introTL = new TimelineMax({
+      paused: true,
+      onComplete: () => {
+        this.pendingTL.play()
+        this.introIsOver()
+      }
+    })
 
     this.introTL.fromTo(
       this.refs.cube,
@@ -25,17 +31,23 @@ export default class Intro extends TimelineController {
       },
       {
         scale: 1,
-        x: 100,
-        onComplete: () => {
-          this.pendingTL.play()
-          this.introIsOver()
-        }
+        x: 100
       }
     )
   }
 
   initPendingTL() {
-    this.pendingTL = new TimelineMax({ paused: true, repeat: -1, yoyo: true })
+    this.pendingTL = new TimelineMax({
+      paused: true,
+      repeat: -1,
+      yoyo: true,
+      onRepeat: () => {
+        if (this.pauseOnPendingComplete !== false) {
+          this.pendingTL.pause()
+          this.pendingIsOver()
+        }
+      }
+    })
 
     this.pendingTL.fromTo(
       this.refs.cube,
@@ -44,19 +56,7 @@ export default class Intro extends TimelineController {
         rotation: 0
       },
       {
-        rotation: 90,
-        onReverseComplete: () => {
-          if (this.pauseOnPendingComplete !== false) {
-            this.pendingTL.pause()
-            this.pendingIsOver()
-          }
-        },
-        onComplete: () => {
-          if (this.pauseOnPendingComplete !== false) {
-            this.pendingTL.pause()
-            this.pendingIsOver()
-          }
-        }
+        rotation: 90
       }
     )
   }
@@ -64,6 +64,11 @@ export default class Intro extends TimelineController {
   initOutTL() {
     this.outTL = new TimelineMax({ paused: true, repeat: -1, yoyo: true })
 
-    this.outTL.fromTo(this.refs.cube, 1, { scale: 0.9 }, { scale: 1.1 })
+    this.outTL.fromTo(
+      this.refs.cube,
+      1,
+      { scale: 0.9 },
+      { scale: 1.1, rotation: 0 }
+    )
   }
 }
