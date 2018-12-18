@@ -17,6 +17,13 @@ export default class Art extends Component {
 
   componentDidMount() {
     this.refs.oeuvre.intro.outTL.play()
+    this.hideGameOverButton()
+  }
+
+  hideGameOverButton() {
+    TweenMax.set(this.refs.gameOver, {
+      autoAlpha: 0
+    })
   }
 
   onNextStep = nextDecisionNeeded => {
@@ -52,11 +59,28 @@ export default class Art extends Component {
   }
 
   onGetStarted = () => {
-    TweenMax.to(this.refs.getStarted, 1, {
-      autoAlpha: 0
-    })
+    TweenMax.to(
+      [this.refs.getStarted, this.refs.title, this.refs.gameOver],
+      1,
+      {
+        autoAlpha: 0
+      }
+    )
     this.refs.oeuvre.intro.outTL.pause()
-    this.refs.oeuvre.intro.introTL.play()
+    this.refs.oeuvre.intro.introTL.restart()
+  }
+
+  onRestart = () => {
+    this.setState({ step: 0, decisions: [] }, () => {
+      this.onGetStarted()
+    })
+  }
+
+  onGameOver = () => {
+    console.log('GAME OVER')
+    // TweenMax.to(this.refs.gameOver, 0.5, {
+    //   autoAlpha: 1
+    // })
   }
 
   render() {
@@ -67,7 +91,7 @@ export default class Art extends Component {
     return (
       <div className={css.Art}>
         <Typography type="title" className={css.title}>
-          <h1>{title}</h1>
+          <h1 ref="title">{title}</h1>
         </Typography>
         <button
           ref="getStarted"
@@ -75,11 +99,18 @@ export default class Art extends Component {
           onClick={this.onGetStarted}>
           Get started
         </button>
+        <button
+          ref="gameOver"
+          className={css.gameOver}
+          onClick={this.onRestart}>
+          Restart
+        </button>
         <Component
           ref="oeuvre"
           decisions={decisions}
           step={step}
           nextStep={this.onNextStep}
+          gameOver={this.onGameOver}
         />
         {decision && (
           <Decision

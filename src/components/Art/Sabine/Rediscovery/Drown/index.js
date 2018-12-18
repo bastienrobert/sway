@@ -11,19 +11,31 @@ export default class Drown {
   }
 
   initIntroTL() {
-    this.introTL = new TimelineMax({ paused: true })
-
-    this.introTL.to(this.refs.cube, 2, {
-      x: -50,
+    this.introTL = new TimelineMax({
+      paused: true,
       onComplete: () => {
         this.introIsOver()
         this.pendingTL.play()
       }
     })
+
+    this.introTL.to(this.refs.cube, 2, {
+      x: -50
+    })
   }
 
   initPendingTL() {
-    this.pendingTL = new TimelineMax({ paused: true, repeat: -1, yoyo: true })
+    this.pendingTL = new TimelineMax({
+      paused: true,
+      repeat: -1,
+      yoyo: true,
+      onRepeat: () => {
+        if (this.pauseOnPendingComplete !== false) {
+          this.pendingTL.pause()
+          this.pendingIsOver()
+        }
+      }
+    })
 
     this.pendingTL.fromTo(
       this.refs.cube,
@@ -32,19 +44,7 @@ export default class Drown {
         scale: 1
       },
       {
-        scale: 0.7,
-        onComplete: () => {
-          if (this.pauseOnPendingComplete) {
-            this.pendingTL.pause()
-            this.pendingIsOver()
-          }
-        },
-        onReverseComplete: () => {
-          if (this.pauseOnPendingComplete) {
-            this.pendingTL.pause()
-            this.pendingIsOver()
-          }
-        }
+        scale: 0.7
       }
     )
   }

@@ -32,7 +32,11 @@ export default class Oeuvre extends Component {
     })
 
     // Create OUTRO
-    this.outro = new timelines.outro(refs, this.introIsOver, this.pendingIsOver)
+    this.outro = new timelines.outro(
+      refs,
+      this.props.gameOver,
+      this.pendingIsOver
+    )
 
     // All TLs
     this.tls = [this.intro, ...this.decisions, this.outro]
@@ -51,6 +55,11 @@ export default class Oeuvre extends Component {
     this.previousTLs = this.currentTLs
     this.currentTLs = this.tls[this.props.step]
     this.tls.forEach(tl => tl.updateRefs({ ...this.refs, ...this.references }))
+
+    if (this.props.step === 0) {
+      this.outro.tls[0].pendingTL.pause()
+      this.outro.tls[0].pendingTL.restart()
+    }
   }
 
   get decision() {
