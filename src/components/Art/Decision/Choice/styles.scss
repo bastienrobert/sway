@@ -6,6 +6,20 @@
   margin: 0 10px;
   cursor: pointer;
 
+  &.negative {
+    .text {
+      fill: $white;
+    }
+
+    .border {
+      stroke: $white;
+    }
+
+    .progress {
+      stroke: $white;
+    }
+  }
+
   .control {
     text-anchor: middle;
     width: 100%;

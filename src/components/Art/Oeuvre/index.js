@@ -63,11 +63,8 @@ export default class Oeuvre extends Component {
   }
 
   get decision() {
-    const { title, choices } = timelines.decisions[this.props.step]
-    return {
-      title,
-      choices
-    }
+    const { title, choices, negative } = timelines.decisions[this.props.step]
+    return { title, choices, negative }
   }
 
   decisionSelected = choice => {
@@ -82,7 +79,7 @@ export default class Oeuvre extends Component {
     if (this.previousTLs.tls[this.previousDecision].pendingTL.isActive()) return
     this.currentTLs.tls[this.selected].introTL.pause()
     this.currentTLs.tls[this.selected].introTL.time(0)
-    this.previousTLs.tls[this.previousDecision].pendingTL.play()
+    this.previousTLs.tls[this.previousDecision].pendingTL.restart()
     this.selected = null
   }
 

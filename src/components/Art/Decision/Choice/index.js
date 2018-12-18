@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import classnames from 'classnames/bind'
 
 import { TimelineMax, Expo } from 'gsap/all'
 
 import css from './styles.scss'
+const cx = classnames.bind(css)
 
 export default class Choice extends Component {
   componentDidMount() {
@@ -37,10 +39,14 @@ export default class Choice extends Component {
   }
 
   render() {
-    const { label } = this.props
+    const { label, negative } = this.props
+    const componentStyle = cx(css.Choice, {
+      negative
+    })
+
     return (
       <div
-        className={css.Choice}
+        className={componentStyle}
         ref="component"
         onClick={this.validate}
         onMouseEnter={this.onMouseEnter}

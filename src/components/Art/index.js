@@ -118,6 +118,7 @@ export default class Art extends Component {
             step={step}
             title={decision.title}
             choices={decision.choices}
+            negative={decision.negative}
             onSelect={this.onDecisionSelected}
             onCancel={this.onDecisionCancelled}
             onValidate={this.onDecisionValidate}

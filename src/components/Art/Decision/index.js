@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { TimelineMax } from 'gsap/all'
+import classnames from 'classnames/bind'
 
 import Typography from 'components/Typography'
 
 import Choice from './Choice'
 
 import css from './styles.scss'
+const cx = classnames.bind(css)
 
 export default class Decision extends Component {
   componentDidMount() {
@@ -59,10 +61,13 @@ export default class Decision extends Component {
 
   render() {
     this.choices = []
-    const { title, choices } = this.props
+    const { title, choices, negative } = this.props
+    const componentStyle = cx(css.Decision, {
+      negative
+    })
 
     return (
-      <div className={css.Decision} ref="component">
+      <div className={componentStyle} ref="component">
         <Typography type="subtitle" className={css.title}>
           <h2>{title}</h2>
         </Typography>
@@ -72,6 +77,7 @@ export default class Decision extends Component {
               key={`choice-${i}`}
               id={i}
               ref={el => el && this.choices.push(el)}
+              negative={negative}
               onChoiceValidate={this.onChoiceValidate}
               onMouseEnter={this.onMouseEnter}
               onMouseLeave={this.onMouseLeave}

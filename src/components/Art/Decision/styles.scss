@@ -4,6 +4,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
+  &.negative {
+    .title {
+      color: #fff;
+    }
+  }
+
   .title {
     text-align: center;
     margin-bottom: 30px;
