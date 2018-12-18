@@ -29,15 +29,20 @@ export default class Storm {
     })
 
     this.introTL.fromTo(
-      this.refs.background,
+      [this.refs.background, this.refs.stormClouds.component],
       4,
       { backgroundColor: '#FFF' },
       { backgroundColor: '#551300' },
       0
     )
 
-    const stormClouds = Object.values(this.refs.stormClouds)
-    this.introTL.fromTo(stormClouds, 2, { autoAlpha: 0 }, { autoAlpha: 1 }, 0.5)
+    this.introTL.fromTo(
+      this.refs.stormClouds.component,
+      2,
+      { autoAlpha: 0 },
+      { autoAlpha: 1 },
+      0.5
+    )
 
     this.introTL.add(this.boatIntroTL, 0)
 
