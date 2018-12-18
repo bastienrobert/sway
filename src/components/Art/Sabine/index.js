@@ -11,80 +11,107 @@ export default class Sabine extends Oeuvre {
   render() {
     this.references.stormClouds = {}
     this.references.stormOcean = {}
+    this.references.ocean = {}
     this.references.boat = {}
 
     return (
       <div className={css.Sabine} ref="component">
         <div ref="background" className={css.background} />
-        <div ref="backgroundImage" className={css.backgroundImage} />
-        <div ref="cube" className={css.cube} />
+        {/* <div ref="backgroundImage" className={css.backgroundImage} /> */}
         <div
-          className={css.stormClouds}
-          ref={el => el && (this.references.stormClouds.component = el)}>
-          <div
-            className={css.stormCloudBrushSmallRight}
-            ref={el =>
-              el && (this.references.stormClouds.stormCloudBrushSmallRight = el)
-            }
-          />
-          <div
-            className={css.stormCloudPointSmall}
-            ref={el =>
-              el && (this.references.stormClouds.stormCloudPointSmall = el)
-            }
-          />
-          <div
-            className={css.stormCloudOrange}
-            ref={el =>
-              el && (this.references.stormClouds.stormCloudOrange = el)
-            }
-          />
-          <div
-            className={css.stormCloudBrushSmallLeft}
-            ref={el =>
-              el && (this.references.stormClouds.stormCloudBrushSmallLeft = el)
-            }
-          />
-          <div
-            className={css.stormCloudPointBig}
-            ref={el =>
-              el && (this.references.stormClouds.stormCloudPointBig = el)
-            }
-          />
-          <div
-            className={css.stormCloudBrushBigRight}
-            ref={el =>
-              el && (this.references.stormClouds.stormCloudBrushBigRight = el)
-            }
-          />
-          <div
-            className={css.stormCloudBrushBigLeft}
-            ref={el =>
-              el && (this.references.stormClouds.stormCloudBrushBigLeft = el)
-            }
-          />
-          <div
-            className={css.stormCloudGrey}
-            ref={el => el && (this.references.stormClouds.stormCloudGrey = el)}
-          />
-          <div
-            className={css.stormCloudBlack}
-            ref={el => el && (this.references.stormClouds.stormCloudBlack = el)}
-          />
+          className={css.ocean}
+          ref={el => el && (this.references.ocean.component = el)}>
+          <div className={css.oceanFog} />
+          <div className={css.oceanClouds}>
+            <div className={css.oceanCloudDark} />
+            <div className={css.oceanCloudDouble} />
+            <div className={css.oceanCloudSingle} />
+          </div>
+          <div className={css.oceanWaves}>
+            <div className={css.oceanWaveBig} />
+            <div className={css.oceanWaveLeftClear} />
+            <div className={css.oceanWaveLeftDark} />
+            <div className={css.oceanWaveLeftTransparent} />
+            <div className={css.oceanWaveRightClear} />
+            <div className={css.oceanWaveRightTransparent} />
+          </div>
         </div>
-        <div className={css.stormOcean}>
+        <div ref="cube" className={css.cube} />
+        <div className={css.storm}>
           <div
-            className={css.stormOceanBackground}
-            ref={el => el && (this.references.stormOcean.background = el)}
-          />
-          <div
-            className={css.stormOceanHighlight}
-            ref={el => el && (this.references.stormOcean.highlight = el)}
-          />
-          <div
-            className={css.stormOceanOverlay}
-            ref={el => el && (this.references.stormOcean.overlay = el)}
-          />
+            className={css.stormClouds}
+            ref={el => el && (this.references.stormClouds.component = el)}>
+            <div
+              className={css.stormCloudBrushSmallRight}
+              ref={el =>
+                el &&
+                (this.references.stormClouds.stormCloudBrushSmallRight = el)
+              }
+            />
+            <div
+              className={css.stormCloudPointSmall}
+              ref={el =>
+                el && (this.references.stormClouds.stormCloudPointSmall = el)
+              }
+            />
+            <div
+              className={css.stormCloudOrange}
+              ref={el =>
+                el && (this.references.stormClouds.stormCloudOrange = el)
+              }
+            />
+            <div
+              className={css.stormCloudBrushSmallLeft}
+              ref={el =>
+                el &&
+                (this.references.stormClouds.stormCloudBrushSmallLeft = el)
+              }
+            />
+            <div
+              className={css.stormCloudPointBig}
+              ref={el =>
+                el && (this.references.stormClouds.stormCloudPointBig = el)
+              }
+            />
+            <div
+              className={css.stormCloudBrushBigRight}
+              ref={el =>
+                el && (this.references.stormClouds.stormCloudBrushBigRight = el)
+              }
+            />
+            <div
+              className={css.stormCloudBrushBigLeft}
+              ref={el =>
+                el && (this.references.stormClouds.stormCloudBrushBigLeft = el)
+              }
+            />
+            <div
+              className={css.stormCloudGrey}
+              ref={el =>
+                el && (this.references.stormClouds.stormCloudGrey = el)
+              }
+            />
+            <div
+              className={css.stormCloudBlack}
+              ref={el =>
+                el && (this.references.stormClouds.stormCloudBlack = el)
+              }
+            />
+          </div>
+          <div className={css.stormOcean}>
+            <div
+              className={css.stormOceanBackground}
+              ref={el => el && (this.references.stormOcean.background = el)}
+            />
+            <div
+              className={css.stormOceanHighlight}
+              ref={el => el && (this.references.stormOcean.highlight = el)}
+            />
+            <div
+              className={css.stormOceanOverlay}
+              ref={el => el && (this.references.stormOcean.overlay = el)}
+            />
+          </div>
         </div>
         <div
           className={css.boat}

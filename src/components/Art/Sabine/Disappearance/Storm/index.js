@@ -32,10 +32,9 @@ export default class Storm {
       }
     })
 
-    this.introTL.fromTo(
+    this.introTL.to(
       [this.refs.background, this.refs.stormClouds.component],
       4,
-      { backgroundColor: '#FFF' },
       { backgroundColor: '#551300' },
       0
     )
@@ -50,7 +49,7 @@ export default class Storm {
 
     this.introTL.add(this.boatIntroTL, 0)
 
-    this.introTL.to(this.refs.backgroundImage, 2, { opacity: 0 }, 0)
+    // this.introTL.to(this.refs.backgroundImage, 2, { opacity: 0 }, 0)
 
     this.introTL.fromTo(
       this.stormOcean,
@@ -70,7 +69,7 @@ export default class Storm {
       2,
       { autoAlpha: 0 },
       { autoAlpha: 1 },
-      0.2
+      1
     )
 
     this.boatIntroTL.fromTo(
@@ -78,10 +77,32 @@ export default class Storm {
       4,
       { x: values.viewport.width / 10 - boatBCR.width / 2 },
       {
+        y: 10,
+        rotation: -10,
         x: (values.viewport.width / 10) * 8 - boatBCR.width / 2,
         ease: Expo.easeInOut
       },
-      0.4
+      1
+    )
+
+    this.boatIntroTL.to(
+      this.refs.boat.component,
+      1,
+      {
+        y: -10,
+        rotation: 10,
+        ease: Expo.easeInOut
+      },
+      2
+    )
+
+    this.boatIntroTL.to(
+      this.refs.boat.component,
+      1,
+      {
+        rotation: 0
+      },
+      3
     )
   }
 
