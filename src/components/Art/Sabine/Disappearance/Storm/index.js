@@ -1,4 +1,3 @@
-
 import { TimelineMax, TweenMax, Expo } from 'gsap/all'
 
 import Emitter from 'utils/Emitter'
@@ -37,6 +36,9 @@ export default class Storm {
       0
     )
 
+    const stormClouds = Object.values(this.refs.stormClouds)
+    this.introTL.fromTo(stormClouds, 2, { autoAlpha: 0 }, { autoAlpha: 1 }, 0.5)
+
     this.introTL.add(this.boatIntroTL, 0)
 
     this.introTL.to(this.refs.backgroundImage, 2, { opacity: 0 }, 0)
@@ -53,6 +55,7 @@ export default class Storm {
 
   initBoatIntroTL() {
     this.boatIntroTL = new TimelineMax()
+    const boatBCR = this.refs.boat.component.getBoundingClientRect()
 
     this.boatIntroTL.fromTo(
       this.refs.boat.component,
@@ -65,8 +68,11 @@ export default class Storm {
     this.boatIntroTL.fromTo(
       this.refs.boat.component,
       4,
-      { x: values.viewport.width / 10 },
-      { x: (values.viewport.width / 10) * 6, ease: Expo.easeInOut },
+      { x: values.viewport.width / 10 - boatBCR.width / 2 },
+      {
+        x: (values.viewport.width / 10) * 8 - boatBCR.width / 2,
+        ease: Expo.easeInOut
+      },
       0.4
     )
   }
@@ -115,8 +121,9 @@ export default class Storm {
   }
 
   onResize = () => {
+    const boatBCR = this.refs.boat.component.getBoundingClientRect()
     TweenMax.set(this.refs.boat.component, {
-      x: (values.viewport.width / 10) * 6
+      x: (values.viewport.width / 10) * 8 - boatBCR.width / 2
     })
   }
 }
