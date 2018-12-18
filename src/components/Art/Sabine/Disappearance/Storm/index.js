@@ -132,11 +132,11 @@ export default class Storm {
       yoyo: true,
       onStart: () => {
         RAF.add(this.oceanParallax)
-        !this.oceanTL.isActive() && this.oceanTL.restart()
         RAF.add(this.cloudParallax)
-        this.cloudTL.restart()
         RAF.add(this.lightningParallax)
-        this.lightningTL.restart()
+        !this.oceanTL.isActive() && this.oceanTL.restart()
+        !this.cloudTL.isActive() && this.cloudTL.restart()
+        !this.lightningTL.isActive() && this.lightningTL.restart()
       },
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
@@ -145,9 +145,9 @@ export default class Storm {
           this.disableCloudParallax()
           this.disableLightningParallax()
           this.cloudTL.pause()
-          this.lightningTL.pause()
-          this.pendingTL.pause()
           this.oceanTL.pause()
+          this.pendingTL.pause()
+          this.lightningTL.pause()
           this.pendingIsOver()
         }
       }
@@ -191,7 +191,7 @@ export default class Storm {
       y: (values.mouse.y / values.viewport.height) * 10
     })
     TweenMax.to(this.refs.stormClouds.stormCloudPointBig, 0.5, {
-      x: (values.mouse.x / values.viewport.width) * 20 ,
+      x: (values.mouse.x / values.viewport.width) * 20,
       y: (values.mouse.y / values.viewport.height) * 10
     })
     TweenMax.to(this.refs.stormClouds.stormCloudBrushSmallLeft, 0.5, {
@@ -204,7 +204,7 @@ export default class Storm {
     })
   }
 
-  lightningParallax = () => {
+  lightningParallax = () => {
     TweenMax.to(this.refs.stormLightnings.stormLightningLeft, 0.5, {
       x: -(values.mouse.x / values.viewport.width) * 20,
       y: (values.mouse.y / values.viewport.height) * 10
@@ -219,62 +219,98 @@ export default class Storm {
     })
   }
 
-  initCloudTL(){
+  initCloudTL() {
     this.cloudTL = new TimelineMax({
       paused: true,
-      repeat:-1,
-      yoyo:true,
+      repeat: -1,
+      yoyo: true
     })
-    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudPointSmall, 5, {
-      x: -40,
-      y: 0
-    },{
-      x: 20,
-      y: 0,
-    }, 0)
-    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudOrange, 5, {
-      x: 20,
-      y: 0
-    },{
-      x: -30,
-      y: 0,
-    },0)
-    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudGrey, 5, {
-      x: -30,
-      y: 0
-    },{
-      x: -20,
-      y: 0,
-    },0)
-    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudBrushBigRight, 5, {
-      x: 30,
-      y: 0
-    },{
-      x: -30,
-      y: 0,
-    },0)
-    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudBrushBigLeft, 4, {
-      x: -40,
-      y: 0
-    },{
-      x: 20,
-      y: 0,
-    },0)
+    this.cloudTL.fromTo(
+      this.refs.stormClouds.stormCloudPointSmall,
+      5,
+      {
+        x: -40,
+        y: 0
+      },
+      {
+        x: 20,
+        y: 0
+      },
+      0
+    )
+    this.cloudTL.fromTo(
+      this.refs.stormClouds.stormCloudOrange,
+      5,
+      {
+        x: 20,
+        y: 0
+      },
+      {
+        x: -30,
+        y: 0
+      },
+      0
+    )
+    this.cloudTL.fromTo(
+      this.refs.stormClouds.stormCloudGrey,
+      5,
+      {
+        x: -30,
+        y: 0
+      },
+      {
+        x: -20,
+        y: 0
+      },
+      0
+    )
+    this.cloudTL.fromTo(
+      this.refs.stormClouds.stormCloudBrushBigRight,
+      5,
+      {
+        x: 30,
+        y: 0
+      },
+      {
+        x: -30,
+        y: 0
+      },
+      0
+    )
+    this.cloudTL.fromTo(
+      this.refs.stormClouds.stormCloudBrushBigLeft,
+      4,
+      {
+        x: -40,
+        y: 0
+      },
+      {
+        x: 20,
+        y: 0
+      },
+      0
+    )
   }
-  
-  initLightningTL(){
+
+  initLightningTL() {
     this.lightningTL = new TimelineMax({
       paused: true,
-      repeat:-1,
-      yoyo:true,
+      repeat: -1,
+      yoyo: true
     })
-    this.lightningTL.fromTo(this.refs.stormLightnings.stormLightningRight, 5, {
-      x: -40,
-      y: 0
-    },{
-      x: 20,
-      y: 0,
-    }, 0)
+    this.lightningTL.fromTo(
+      this.refs.stormLightnings.stormLightningRight,
+      5,
+      {
+        x: -40,
+        y: 0
+      },
+      {
+        x: 20,
+        y: 0
+      },
+      0
+    )
   }
 
   disableOceanParallax = () => {
@@ -287,17 +323,27 @@ export default class Storm {
 
   disableCloudParallax = () => {
     RAF.remove(this.cloudParallax)
-    TweenMax.to(this.refs.stormClouds, .5, {
-      x: 0,
-      y: 0
-    }, .2)
+    TweenMax.to(
+      this.refs.stormClouds,
+      0.5,
+      {
+        x: 0,
+        y: 0
+      },
+      0.2
+    )
   }
   disableLightningParallax = () => {
     RAF.remove(this.lightningParallax)
-    TweenMax.to(this.refs.stormLightnings, .5, {
-      x: 0,
-      y: 0
-    }, .2)
+    TweenMax.to(
+      this.refs.stormLightnings,
+      0.5,
+      {
+        x: 0,
+        y: 0
+      },
+      0.2
+    )
   }
 
   onResize = () => {
