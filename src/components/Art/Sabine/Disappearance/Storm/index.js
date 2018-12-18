@@ -317,39 +317,68 @@ export default class Storm {
     )
   }
 
-  initFlashesTL(){
+  initFlashesTL() {
     this.flashesTL = new TimelineMax({
       paused: true,
-      repeat:-1,
-      yoyo:true,
+      repeat: -1,
+      yoyo: true
     })
-    this.flashesTL.fromTo(this.refs.stormOcean.highlight, 0.3, {
-      opacity:0
-    },{
-      opacity:1
-    },0)
-    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningLeft, 0.3, {
-      opacity:0
-    },{
-      opacity:1
-    },0)
-    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningRight, 0.3, {
-      opacity:0
-    },{
-      opacity:1
-    },0)
-    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningMiddleLeft, 0.3, {
-      opacity:0
-    },{
-      opacity:1
-    },0)
-    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningMiddleRight, 0.3, {
-      opacity:0
-    },{
-      opacity:1
-    },0)
+    this.flashesTL.fromTo(
+      this.refs.storm.ocean.highlight,
+      0.3,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      },
+      0
+    )
+    this.flashesTL.fromTo(
+      this.refs.storm.lightning.left,
+      0.3,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      },
+      0
+    )
+    this.flashesTL.fromTo(
+      this.refs.storm.lightning.right,
+      0.3,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      },
+      0
+    )
+    this.flashesTL.fromTo(
+      this.refs.storm.lightning.middleLeft,
+      0.3,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      },
+      0
+    )
+    this.flashesTL.fromTo(
+      this.refs.storm.lightning.middleRight,
+      0.3,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      },
+      0
+    )
   }
-
 
   disableOceanParallax = () => {
     RAF.remove(this.oceanParallax)
