@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import timelines from '../Sabine/timelines'
-import { createElements } from 'utils/helpers'
 
 export default class Oeuvre extends Component {
   intro = null
@@ -12,14 +11,6 @@ export default class Oeuvre extends Component {
   previousDecision = null
   selected = null
   references = {}
-
-  componentWillMount() {
-    this.generateElements()
-  }
-
-  generateElements() {
-    console.log(createElements(this.elements))
-  }
 
   componentDidMount() {
     this.initTLs()

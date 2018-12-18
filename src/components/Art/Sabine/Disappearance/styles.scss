@@ -1,0 +1,158 @@
+.stormOcean {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: 2;
+  overflow: hidden;
+
+  div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  .stormOceanBackground {
+    background-image: url(assets/sabine/disappearance/storm/ocean.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .stormOceanHighlight {
+    background-image: url(assets/sabine/disappearance/storm/oceanHighlight.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .stormOceanOverlay {
+    background-image: url(assets/sabine/disappearance/storm/oceanOverlay.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .stormCloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+
+    div {
+      position: absolute;
+      padding-bottom: 50%;
+      background-repeat: no-repeat;
+    }
+
+    .stormLightningLeft {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/left.png);
+      top: 230px;
+      left: 14%;
+      width: 200px;
+    }
+
+    .stormLightningMiddleLeft {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleLeft.png);
+      top: 100px;
+      left: 32%;
+      width: 200px;
+    }
+
+    .stormLightningMiddleRight {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleRight.png);
+      top: 180px;
+      left: 46%;
+      width: 200px;
+    }
+
+    .stormLightningRight {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/right.png);
+      top: 120px;
+      left: 70%;
+      width: 200px;
+    }
+
+    .stormCloudBrushSmallRight {
+      mix-blend-mode: color-dodge;
+      background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallRight.png);
+      top: 190px;
+      left: 5%;
+      width: 525px;
+      z-index: 1;
+    }
+
+    .stormCloudPointSmall {
+      mix-blend-mode: overlay;
+      background-image: url(assets/sabine/disappearance/storm/clouds/pointSmall.png);
+      top: 40px;
+      left: 5%;
+      width: 425px;
+      z-index: 2;
+    }
+
+    .stormCloudOrange {
+      mix-blend-mode: multiply;
+      background-image: url(assets/sabine/disappearance/storm/clouds/orange.png);
+      top: 80px;
+      left: 10%;
+      width: 665px;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .stormCloudBrushSmallLeft {
+      mix-blend-mode: color-dodge;
+      background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallLeft.png);
+      top: 50px;
+      left: 25%;
+      width: 495px;
+      z-index: 1;
+    }
+
+    .stormCloudPointBig {
+      mix-blend-mode: overlay;
+      background-image: url(assets/sabine/disappearance/storm/clouds/pointBig.png);
+      top: 20px;
+      left: 34%;
+      width: 700px;
+      z-index: 5;
+    }
+    .stormCloudBrushBigRight {
+      mix-blend-mode: color-dodge;
+      background-image: url(assets/sabine/disappearance/storm/clouds/brushBigRight.png);
+      top: 150px;
+      left: 40%;
+      width: 545px;
+      z-index: 3;
+    }
+
+    .stormCloudBrushBigLeft {
+      mix-blend-mode: color-dodge;
+      background-image: url(assets/sabine/disappearance/storm/clouds/brushBigLeft.png);
+      top: 40px;
+      left: 60%;
+      width: 830px;
+      z-index: 5;
+    }
+
+    .stormCloudGrey {
+      mix-blend-mode: multiply;
+      background-image: url(assets/sabine/disappearance/storm/clouds/grey.png);
+      top: 180px;
+      left: 65%;
+      width: 315px;
+      z-index: 6;
+      opacity: 0.5;
+    }
+
+    .stormCloudBlack {
+      background-image: url(assets/sabine/disappearance/storm/clouds/black.png);
+      top: 20px;
+      left: 65%;
+      width: 525px;
+      z-index: 4;
+    }
+  }
+}
