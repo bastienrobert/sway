@@ -25,18 +25,39 @@ export function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function createElement(element, parent) {
-  const { ref, children } = element
-  const name = parent ? parent + capitalize(ref) : ref
-  const el = <div className={`${name}`} />
-  console.log(name)
-  if (children) {
-    console.log(children)
-    const elements = createElements(children, name)
+export function createReference(el, refs, ref, parent) {
+  if (!el) return
+  if (parent) {
+    if (!refs[ref]) refs[ref] = {}
+    return (refs[ref]['component'] = el)
+  } else {
+    return (refs[ref] = el)
   }
-  return el
 }
 
-export function createElements(elements, parent = '') {
-  return elements.map(element => createElement(element, parent))
+export function createElement(element, css, refs, parent) {
+  const { ref, children } = element
+  const name = parent ? parent + capitalize(ref) : ref
+  if (children) {
+    if (!refs[ref]) refs[ref] = {}
+    return React.createElement(
+      'div',
+      {
+        ref: el => createReference(el, refs, ref, true),
+        className: css[name],
+        key: name
+      },
+      createElements(children, css, refs[ref], name)
+    )
+  } else {
+    return React.createElement('div', {
+      ref: el => createReference(el, refs, ref, false),
+      className: css[name],
+      key: name
+    })
+  }
+}
+
+export function createElements(elements, css, refs, parent = '') {
+  return elements.map(element => createElement(element, css, refs, parent))
 }

@@ -1,20 +1,17 @@
 .Sabine {
-  .background,
-  .backgroundImage {
+  @import './Intro/styles.scss';
+  @import './Disappearance/styles.scss';
+  @import './Rediscovery/styles.scss';
+  @import './Outro/styles.scss';
+
+  .background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: $white;
-  }
-
-  .background {
     z-index: -2;
-  }
-
-  .backgroundImage {
-    z-index: -1;
   }
 
   .cube {
@@ -22,157 +19,6 @@
     width: 80px;
     height: 80px;
     opacity: 0;
-  }
-
-  .ocean {
-    .oceanFog {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      background-image: url(assets/sabine/intro/ocean/fog.png);
-      background-size: cover;
-    }
-
-    .oceanClouds {
-      position: absolute;
-      bottom: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-
-      div {
-        position: absolute;
-        width: 400px;
-        transform: translateX(-50%);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-
-      .oceanCloudDark {
-        top: 90px;
-        left: 50%;
-        padding-bottom: 15%;
-        mix-blend-mode: overlay;
-        background-image: url(assets/sabine/intro/ocean/cloudDark.png);
-      }
-
-      .oceanCloudDouble {
-        top: 80px;
-        left: 40%;
-        padding-bottom: 10%;
-        background-image: url(assets/sabine/intro/ocean/cloudDouble.png);
-      }
-
-      .oceanCloudSingle {
-        top: 65px;
-        left: 60%;
-        padding-bottom: 15%;
-        background-image: url(assets/sabine/intro/ocean/cloudSingle.png);
-      }
-    }
-
-    .oceanWaves {
-      position: absolute;
-      bottom: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-
-      div {
-        position: absolute;
-        width: 400px;
-        min-width: 200px;
-        bottom: 0;
-        padding-bottom: 20%;
-        background-size: contain;
-        background-position: bottom;
-        background-repeat: no-repeat;
-      }
-
-      .oceanWaveBig {
-        width: 80%;
-        min-width: 600px;
-        left: 30%;
-        background-image: url(assets/sabine/intro/ocean/waveBig.png);
-      }
-
-      .oceanWaveLeftClear {
-        width: 30%;
-        left: 10%;
-        z-index: -1;
-        background-image: url(assets/sabine/intro/ocean/waveLeftClear.png);
-      }
-
-      .oceanWaveLeftDark {
-        width: 20%;
-        left: 0;
-        background-position: bottom left;
-        background-image: url(assets/sabine/intro/ocean/waveLeftDark.png);
-      }
-
-      .oceanWaveLeftTransparent {
-        width: 30%;
-        padding-bottom: 5%;
-        left: 10%;
-        background-position: top;
-        background-size: cover;
-        background-image: url(assets/sabine/intro/ocean/waveLeftTransparent.png);
-      }
-
-      .oceanWaveRightClear {
-        width: 40%;
-        right: 5%;
-        z-index: -1;
-        background-image: url(assets/sabine/intro/ocean/waveRightClear.png);
-      }
-
-      .oceanWaveRightTransparent {
-        width: 30%;
-        padding-bottom: 5%;
-        right: 0;
-        background-position: top;
-        background-size: cover;
-        background-image: url(assets/sabine/intro/ocean/waveRightTransparent.png);
-      }
-    }
-  }
-
-  .stormOcean {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    z-index: 2;
-    overflow: hidden;
-
-    div {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-    }
-
-    .stormOceanBackground {
-      background-image: url(assets/sabine/disappearance/storm/ocean.png);
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .stormOceanHighlight {
-      background-image: url(assets/sabine/disappearance/storm/oceanHighlight.png);
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .stormOceanOverlay {
-      background-image: url(assets/sabine/disappearance/storm/oceanOverlay.png);
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
   }
 
   .boat {
@@ -200,131 +46,6 @@
       bottom: 0;
       background-size: cover;
       background-image: url(assets/sabine/boat/boatHull.png);
-    }
-  }
-
-  .stormClouds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-
-    div {
-      position: absolute;
-      padding-bottom: 50%;
-      background-repeat: no-repeat;
-    }
-
-    .stormLightningLeft {
-      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/left.png);
-      top:230px;
-      left:14%;
-      width:200px;
-    }
-
-    .stormLightningMiddleLeft {
-      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleLeft.png);
-      top:100px;
-      left:32%;
-      width:200px;
-    }
-
-    .stormLightningMiddleRight {
-      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleRight.png);
-      top:180px;
-      left:46%;
-      width:200px;
-    }
-
-    .stormLightningRight {
-      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/right.png);
-      top:120px;
-      left:70%;
-      width:200px;
-    }
-
-    .stormCloudBrushSmallRight {
-      mix-blend-mode: color-dodge;
-      background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallRight.png);
-      top: 190px;
-      left: 5%;
-      width: 525px;
-      z-index: 1;
-    }
-
-    .stormCloudPointSmall {
-      mix-blend-mode: overlay;
-      background-image: url(assets/sabine/disappearance/storm/clouds/pointSmall.png);
-      top: 40px;
-      left: 5%;
-      width: 425px;
-      z-index: 2;
-    }
-
-    .stormCloudOrange {
-      mix-blend-mode: multiply;
-      background-image: url(assets/sabine/disappearance/storm/clouds/orange.png);
-      top: 80px;
-      left: 10%;
-      width: 665px;
-      z-index: 0;
-      opacity: 0.5;
-    }
-
-    .stormCloudBrushSmallLeft {
-      mix-blend-mode: color-dodge;
-      background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallLeft.png);
-      top: 50px;
-      left: 25%;
-      width: 495px;
-      z-index: 1;
-    }
-
-    .stormCloudPointBig {
-      mix-blend-mode: overlay;
-      background-image: url(assets/sabine/disappearance/storm/clouds/pointBig.png);
-      top: 20px;
-      left: 34%;
-      width: 700px;
-      z-index: 5;
-    }
-    .stormCloudBrushBigRight {
-      mix-blend-mode: color-dodge;
-      background-image: url(assets/sabine/disappearance/storm/clouds/brushBigRight.png);
-      top: 150px;
-      left: 40%;
-      width: 545px;
-      z-index: 3;
-    }
-
-    .stormCloudBrushBigLeft {
-      mix-blend-mode: color-dodge;
-      background-image: url(assets/sabine/disappearance/storm/clouds/brushBigLeft.png);
-      top: 40px;
-      left: 60%;
-      width: 830px;
-      z-index: 5;
-    }
-    
-    .stormCloudGrey {
-      mix-blend-mode: multiply;
-      background-image: url(assets/sabine/disappearance/storm/clouds/grey.png);
-      top: 180px;
-      left: 65%;
-      width: 315px;
-      z-index: 6;
-      opacity: 0.5;
-    }
-
-    .stormCloudBlack {
-      background-image: url(assets/sabine/disappearance/storm/clouds/black.png);
-      top: 20px;
-      left: 65%;
-      width: 525px;
-      z-index: 4;
     }
   }
 }

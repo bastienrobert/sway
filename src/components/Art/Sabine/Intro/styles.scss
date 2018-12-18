@@ -1,0 +1,116 @@
+.ocean {
+  .oceanFog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url(assets/sabine/intro/ocean/fog.png);
+    background-size: cover;
+  }
+
+  .oceanCloud {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    div {
+      position: absolute;
+      width: 400px;
+      transform: translateX(-50%);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .oceanCloudDark {
+      top: 90px;
+      left: 50%;
+      padding-bottom: 15%;
+      mix-blend-mode: overlay;
+      background-image: url(assets/sabine/intro/ocean/cloudDark.png);
+    }
+
+    .oceanCloudDouble {
+      top: 80px;
+      left: 40%;
+      padding-bottom: 10%;
+      background-image: url(assets/sabine/intro/ocean/cloudDouble.png);
+    }
+
+    .oceanCloudSingle {
+      top: 65px;
+      left: 60%;
+      padding-bottom: 15%;
+      background-image: url(assets/sabine/intro/ocean/cloudSingle.png);
+    }
+  }
+
+  .oceanWave {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    div {
+      position: absolute;
+      width: 400px;
+      min-width: 200px;
+      bottom: 0;
+      padding-bottom: 20%;
+      background-size: contain;
+      background-position: bottom;
+      background-repeat: no-repeat;
+    }
+
+    .oceanWaveBig {
+      width: 80%;
+      min-width: 600px;
+      left: 30%;
+      background-image: url(assets/sabine/intro/ocean/waveBig.png);
+    }
+
+    .oceanWaveLeftClear {
+      width: 30%;
+      left: 10%;
+      z-index: -1;
+      background-image: url(assets/sabine/intro/ocean/waveLeftClear.png);
+    }
+
+    .oceanWaveLeftDark {
+      width: 20%;
+      left: 0;
+      background-position: bottom left;
+      background-image: url(assets/sabine/intro/ocean/waveLeftDark.png);
+    }
+
+    .oceanWaveLeftTransparent {
+      width: 30%;
+      padding-bottom: 5%;
+      left: 10%;
+      background-position: top;
+      background-size: cover;
+      background-image: url(assets/sabine/intro/ocean/waveLeftTransparent.png);
+    }
+
+    .oceanWaveRightClear {
+      width: 40%;
+      right: 5%;
+      z-index: -1;
+      background-image: url(assets/sabine/intro/ocean/waveRightClear.png);
+    }
+
+    .oceanWaveRightTransparent {
+      width: 30%;
+      padding-bottom: 5%;
+      right: 0;
+      background-position: top;
+      background-size: cover;
+      background-image: url(assets/sabine/intro/ocean/waveRightTransparent.png);
+    }
+  }
+}
