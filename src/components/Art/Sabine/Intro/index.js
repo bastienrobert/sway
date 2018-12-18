@@ -84,11 +84,11 @@ export default class Intro extends TimelineController {
 
     this.outTL.add(this.oceanTL, 0)
 
-    // this.outTL.fromTo(
-    //   this.refs.cube,
-    //   1,
-    //   { scale: 0.9 },
-    //   { scale: 1.1, rotation: 0 }
-    // )
+    this.outTL.fromTo(
+      this.refs.cube,
+      1,
+      { scale: 0.9 },
+      { scale: 1.1, rotation: 0 }
+    )
   }
 }
