@@ -124,6 +124,7 @@ export default class Storm {
   }
 
   initPendingTL() {
+    this.initFlashesTL()
     this.initCloudTL()
     this.initLightningTL()
     this.pendingTL = new TimelineMax({
@@ -137,6 +138,7 @@ export default class Storm {
         this.cloudTL.restart()
         RAF.add(this.lightningParallax)
         this.lightningTL.restart()
+        this.flashesTL.restart()
       },
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
@@ -146,6 +148,7 @@ export default class Storm {
           this.disableLightningParallax()
           this.cloudTL.pause()
           this.lightningTL.pause()
+          this.flashesTL.pause()
           this.pendingTL.pause()
           this.oceanTL.pause()
           this.pendingIsOver()
@@ -276,6 +279,40 @@ export default class Storm {
       y: 0,
     }, 0)
   }
+
+  initFlashesTL(){
+    this.flashesTL = new TimelineMax({
+      paused: true,
+      repeat:-1,
+      yoyo:true,
+    })
+    this.flashesTL.fromTo(this.refs.stormOcean.highlight, 0.3, {
+      opacity:0
+    },{
+      opacity:1
+    },0)
+    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningLeft, 0.3, {
+      opacity:0
+    },{
+      opacity:1
+    },0)
+    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningRight, 0.3, {
+      opacity:0
+    },{
+      opacity:1
+    },0)
+    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningMiddleLeft, 0.3, {
+      opacity:0
+    },{
+      opacity:1
+    },0)
+    this.flashesTL.fromTo(this.refs.stormLightnings.stormLightningMiddleRight, 0.3, {
+      opacity:0
+    },{
+      opacity:1
+    },0)
+  }
+
 
   disableOceanParallax = () => {
     RAF.remove(this.oceanParallax)
