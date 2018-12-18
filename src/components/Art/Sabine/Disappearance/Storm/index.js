@@ -9,65 +9,8 @@ export default class Storm {
     this.initIntroTL()
     this.initPendingTL()
   }
-  setOriginalPosition() {
-    TweenMax.set(this.refs.stormClouds.stromCloudBrushSmallRight, {
-      top:180,
-      left:'1%',
-      width: 525,
-      zIndex: 1
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudPointSmall, {
-      top:30,
-      left:'1%',
-      width: 425,
-      zIndex: 2
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudOrange, {
-      top:70,
-      left:'8%',
-      width: 665,
-      zIndex: 0,
-      opacity:0.7
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudBrushSmallLeft, {
-      top:40,
-      left:'22%',
-      width: 495,
-      zIndex: 1
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudPointBig, {
-      top:10,
-      left:'30%',
-      width: 700,
-      zIndex: 4
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudBrushBigRight, {
-      top:120,
-      left:'40%',
-      width: 545,
-      zIndex: 3
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudBrushBigLeft, {
-      top:30,
-      left:'53%',
-      width: 830,
-      zIndex: 1
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudGrey, {
-      top:140,
-      left:'63%',
-      width: 315,
-      zIndex: 2
-    })
-    TweenMax.set(this.refs.stormClouds.stromCloudBlack, {
-      top:10,
-      left:'65%',
-      width: 525,
-      zIndex: 4
-    })
-  }
+
   initIntroTL() {
-    this.setOriginalPosition()
     this.introTL = new TimelineMax({ paused: true })
 
     this.introTL.fromTo(
