@@ -15,12 +15,16 @@ export default class Storm {
   }
 
   initIntroTL() {
+    this.stormOcean = Object.values(this.refs.stormOcean)
+
     this.initBoatIntroTL()
+    this.initOceanTL()
 
     this.introTL = new TimelineMax({
       paused: true,
       onStart: () => {
         Emitter.on('resize', this.onResize)
+        this.oceanTL.restart()
       },
       onComplete: () => {
         this.introIsOver()
@@ -48,9 +52,8 @@ export default class Storm {
 
     this.introTL.to(this.refs.backgroundImage, 2, { opacity: 0 }, 0)
 
-    const stormOcean = Object.values(this.refs.stormOcean)
     this.introTL.fromTo(
-      stormOcean,
+      this.stormOcean,
       4,
       { autoAlpha: 0, y: 200 },
       { autoAlpha: 1, y: 0, ease: Expo.easeInOut },
@@ -82,6 +85,23 @@ export default class Storm {
     )
   }
 
+  initOceanTL() {
+    this.oceanTL = new TimelineMax({ paused: true, repeat: -1, yoyo: true })
+
+    this.oceanTL.fromTo(
+      this.stormOcean,
+      2,
+      {
+        x: -5,
+        y: 5
+      },
+      {
+        x: 5,
+        y: -5
+      }
+    )
+  }
+
   initPendingTL() {
     this.pendingTL = new TimelineMax({
       paused: true,
@@ -89,24 +109,41 @@ export default class Storm {
       yoyo: true,
       onStart: () => {
         RAF.add(this.oceanParallax)
+        !this.oceanTL.isActive() && this.oceanTL.restart()
       },
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
           Emitter.off('resize', this.onResize)
           this.disableOceanParallax()
           this.pendingTL.pause()
+          this.oceanTL.pause()
           this.pendingIsOver()
         }
       }
     })
 
-    this.pendingTL.fromTo(this.refs.cube, 2, { rotation: 0 }, { rotation: 45 })
+    this.pendingTL.fromTo(
+      this.refs.cube,
+      2,
+      { rotation: 0 },
+      { rotation: 45 },
+      0
+    )
 
     this.pendingTL.to(
       this.refs.boat.matt,
       2,
       { rotation: -2.5 },
-      { rotation: 2.5 }
+      { rotation: 2.5 },
+      0
+    )
+
+    this.pendingTL.to(
+      this.refs.boat.hull,
+      2,
+      { rotation: 1.5 },
+      { rotation: -1.5 },
+      0
     )
   }
 
