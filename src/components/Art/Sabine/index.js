@@ -10,6 +10,7 @@ export default class Sabine extends Oeuvre {
 
   render() {
     this.references.stormClouds = {}
+    this.references.stormLightnings = {}
     this.references.stormOcean = {}
     this.references.boat = {}
 
@@ -21,6 +22,30 @@ export default class Sabine extends Oeuvre {
         <div
           className={css.stormClouds}
           ref={el => el && (this.references.stormClouds.component = el)}>
+          <div 
+            className={css.stormLightningLeft} 
+            ref={el =>
+              el && (this.references.stormLightnings.stormLightningLeft = el)
+            }
+          />
+          <div 
+            className={css.stormLightningMiddleLeft} 
+            ref={el =>
+              el && (this.references.stormLightnings.stormLightningMiddleLeft = el)
+            }
+          />
+          <div 
+            className={css.stormLightningMiddleRight} 
+            ref={el =>
+              el && (this.references.stormLightnings.stormLightningMiddleRight = el)
+            }
+          />
+          <div 
+            className={css.stormLightningRight} 
+            ref={el =>
+              el && (this.references.stormLightnings.stormLightningRight = el)
+            }
+          />
           <div
             className={css.stormCloudBrushSmallRight}
             ref={el =>

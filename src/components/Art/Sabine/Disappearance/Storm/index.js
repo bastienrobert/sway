@@ -103,6 +103,8 @@ export default class Storm {
   }
 
   initPendingTL() {
+    this.initCloudTL()
+    this.initLightningTL()
     this.pendingTL = new TimelineMax({
       paused: true,
       repeat: -1,
@@ -110,11 +112,19 @@ export default class Storm {
       onStart: () => {
         RAF.add(this.oceanParallax)
         !this.oceanTL.isActive() && this.oceanTL.restart()
+        RAF.add(this.cloudParallax)
+        this.cloudTL.restart()
+        RAF.add(this.lightningParallax)
+        this.lightningTL.restart()
       },
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
           Emitter.off('resize', this.onResize)
           this.disableOceanParallax()
+          this.disableCloudParallax()
+          this.disableLightningParallax()
+          this.cloudTL.pause()
+          this.lightningTL.pause()
           this.pendingTL.pause()
           this.oceanTL.pause()
           this.pendingIsOver()
@@ -154,12 +164,119 @@ export default class Storm {
     })
   }
 
+  cloudParallax = () => {
+    TweenMax.to(this.refs.stormClouds.stormCloudBrushSmallRight, 0.5, {
+      x: -(values.mouse.x / values.viewport.width) * 20,
+      y: (values.mouse.y / values.viewport.height) * 10
+    })
+    TweenMax.to(this.refs.stormClouds.stormCloudPointBig, 0.5, {
+      x: (values.mouse.x / values.viewport.width) * 20 ,
+      y: (values.mouse.y / values.viewport.height) * 10
+    })
+    TweenMax.to(this.refs.stormClouds.stormCloudBrushSmallLeft, 0.5, {
+      x: (values.mouse.x / values.viewport.width) * 20,
+      y: -(values.mouse.y / values.viewport.height) * 10
+    })
+    TweenMax.to(this.refs.stormClouds.stormCloudBlack, 0.5, {
+      x: (values.mouse.x / values.viewport.width) * 20,
+      y: -(values.mouse.y / values.viewport.height) * 10
+    })
+  }
+
+  lightningParallax = () => {
+    TweenMax.to(this.refs.stormLightnings.stormLightningLeft, 0.5, {
+      x: -(values.mouse.x / values.viewport.width) * 20,
+      y: (values.mouse.y / values.viewport.height) * 10
+    })
+    TweenMax.to(this.refs.stormLightnings.stormLightningMiddleLeft, 0.5, {
+      x: (values.mouse.x / values.viewport.width) * 20,
+      y: -(values.mouse.y / values.viewport.height) * 10
+    })
+    TweenMax.to(this.refs.stormLightnings.stormLightningMiddleRight, 0.5, {
+      x: (values.mouse.x / values.viewport.width) * 20,
+      y: (values.mouse.y / values.viewport.height) * 10
+    })
+  }
+
+  initCloudTL(){
+    this.cloudTL = new TimelineMax({
+      paused: true,
+      repeat:-1,
+      yoyo:true,
+    })
+    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudPointSmall, 5, {
+      x: -40,
+      y: 0
+    },{
+      x: 20,
+      y: 0,
+    }, 0)
+    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudOrange, 5, {
+      x: 20,
+      y: 0
+    },{
+      x: -30,
+      y: 0,
+    },0)
+    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudGrey, 5, {
+      x: -30,
+      y: 0
+    },{
+      x: -20,
+      y: 0,
+    },0)
+    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudBrushBigRight, 5, {
+      x: 30,
+      y: 0
+    },{
+      x: -30,
+      y: 0,
+    },0)
+    this.cloudTL.fromTo(this.refs.stormClouds.stormCloudBrushBigLeft, 4, {
+      x: -40,
+      y: 0
+    },{
+      x: 20,
+      y: 0,
+    },0)
+  }
+  
+  initLightningTL(){
+    this.lightningTL = new TimelineMax({
+      paused: true,
+      repeat:-1,
+      yoyo:true,
+    })
+    this.lightningTL.fromTo(this.refs.stormLightnings.stormLightningRight, 5, {
+      x: -40,
+      y: 0
+    },{
+      x: 20,
+      y: 0,
+    }, 0)
+  }
+
   disableOceanParallax = () => {
     RAF.remove(this.oceanParallax)
     TweenMax.to(this.refs.stormOcean.overlay, 0.5, {
       x: 0,
       y: 0
     })
+  }
+
+  disableCloudParallax = () => {
+    RAF.remove(this.cloudParallax)
+    TweenMax.to(this.refs.stormClouds, .5, {
+      x: 0,
+      y: 0
+    }, .2)
+  }
+  disableLightningParallax = () => {
+    RAF.remove(this.lightningParallax)
+    TweenMax.to(this.refs.stormLightnings, .5, {
+      x: 0,
+      y: 0
+    }, .2)
   }
 
   onResize = () => {

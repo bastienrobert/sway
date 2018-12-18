@@ -99,6 +99,34 @@
       position: absolute;
     }
 
+    .stormLightningLeft {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/left.png);
+      top:230px;
+      left:14%;
+      width:200px;
+    }
+
+    .stormLightningMiddleLeft {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleLeft.png);
+      top:100px;
+      left:32%;
+      width:200px;
+    }
+
+    .stormLightningMiddleRight {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleRight.png);
+      top:180px;
+      left:46%;
+      width:200px;
+    }
+
+    .stormLightningRight {
+      background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/right.png);
+      top:120px;
+      left:70%;
+      width:200px;
+    }
+
     .stormCloudBrushSmallRight {
       mix-blend-mode: color-dodge;
       background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallRight.png);
@@ -142,7 +170,7 @@
       top: 20px;
       left: 34%;
       width: 700px;
-      z-index: 4;
+      z-index: 5;
     }
     .stormCloudBrushBigRight {
       mix-blend-mode: color-dodge;
@@ -161,6 +189,7 @@
       width: 830px;
       z-index: 5;
     }
+    
     .stormCloudGrey {
       mix-blend-mode: multiply;
       background-image: url(assets/sabine/disappearance/storm/clouds/grey.png);
