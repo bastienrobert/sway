@@ -179,13 +179,13 @@ export default class Storm {
       repeat: -1,
       yoyo: true,
       onStart: () => {
-        // RAF.add(this.oceanParallax)
-        // RAF.add(this.cloudParallax)
-        // RAF.add(this.lightningParallax)
-        // !this.oceanTL.isActive() && this.oceanTL.restart()
-        // !this.cloudTL.isActive() && this.cloudTL.restart()
-        // !this.lightningTL.isActive() && this.lightningTL.restart()
-        // !this.flashesTL.isActive() && this.flashesTL.restart()
+        RAF.add(this.oceanParallax)
+        RAF.add(this.cloudParallax)
+        RAF.add(this.lightningParallax)
+        !this.oceanTL.isActive() && this.oceanTL.restart()
+        !this.cloudTL.isActive() && this.cloudTL.restart()
+        !this.lightningTL.isActive() && this.lightningTL.restart()
+        !this.flashesTL.isActive() && this.flashesTL.restart()
       },
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
