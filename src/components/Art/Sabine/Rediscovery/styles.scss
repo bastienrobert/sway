@@ -1,0 +1,252 @@
+.drown {
+	width:100%;
+	height:100%;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 3;
+	overflow: hidden;
+	
+// 	//RED SEA
+// 	&RedSea {
+// 		background-color:#545453;
+// 		position: absolute;
+// 		width:100%;
+// 		height:100%;
+// 		div {
+// 			width: 110%;
+// 			height: 110%;
+// 			position: absolute;
+// 			background-size: 110%;
+// 			background-repeat: no-repeat;
+// 			background-position: center;
+// 			top: -5%;
+// 			left: -5%;
+// 		}
+// 		&Lighter {
+// 			background-image: url(assets/sabine/rediscovery/drown/redSea/lighter.png);
+// 		}
+// 		&Grey {
+// 			background-image: url(assets/sabine/rediscovery/drown/redSea/grey.png);
+// 		}
+// 		&Black {
+// 			background-image: url(assets/sabine/rediscovery/drown/redSea/black.png);
+// 		}
+// 		&FlashGrey {
+// 			background-image: url(assets/sabine/rediscovery/drown/redSea/flashGrey.png);
+// 		}
+// 		&FlashRedDark {
+// 			background-image: url(assets/sabine/rediscovery/drown/redSea/flashRedDark.png);
+// 		}
+// 		&FlashRedLight {
+// 			background-image: url(assets/sabine/rediscovery/drown/redSea/flashRedLight.png);
+// 		}
+// 	}
+
+	//BLUE SEA
+	// &BlueSea {
+	// 	background-color:#021b66;
+	// 	position: absolute;
+	// 	width:100%;
+	// 	height:100%;
+	// 	div {
+	// 		width: 110%;
+	// 		height: 110%;
+	// 		position: absolute;
+	// 		background-size: 110%;
+	// 		background-repeat: no-repeat;
+	// 		background-position: center;
+	// 		top: -5%;
+	// 		left: -5%;
+	// 	}
+	// 	&FirstPointBlue {
+	// 		background-image: url(assets/sabine/rediscovery/drown/blueSea/firstPointBlue.png);
+	// 	}
+	// 	// &SecondPointBlue {
+	// 	// 	background-image: url(assets/sabine/rediscovery/drown/blueSea/secondPointBlue.png);
+	// 	// }
+	// 	&FirstDarkBlue {
+	// 		background-image: url(assets/sabine/rediscovery/drown/blueSea/firstDarkBlue.png);
+	// 	}
+	// 	// &SecondDarkBlue {
+	// 	// 	background-image: url(assets/sabine/rediscovery/drown/blueSea/secondDarkBlue.png);
+	// 	// }
+	// 	&FirstDarkerBlue {
+	// 		background-image: url(assets/sabine/rediscovery/drown/blueSea/firstDarkerBlue.png);
+	// 	}
+	// 	// &SecondDarkerBlue {
+	// 	// 	background-image: url(assets/sabine/rediscovery/drown/blueSea/secondDarkerBlue.png);
+	// 	// }
+	// 	&FirstBlue {
+	// 		background-image: url(assets/sabine/rediscovery/drown/blueSea/firstBlue.png);
+	// 	}
+	// 	// &SecondBlue {
+	// 	// 	background-image: url(assets/sabine/rediscovery/drown/blueSea/secondBlue.png);
+	// 	// }
+	// }
+
+	//DROWNING ELEMENTS
+// 	&Floatting {
+// 		position: absolute;
+// 		width:100%;
+// 		height:100%;
+// 		div {
+// 			width: 100%;
+// 			height: 100%;
+// 			position: absolute;
+// 			background-repeat: no-repeat;
+// 		}
+// 		&WoodOne {
+// 			background-size:20%;
+// 			transform:translate3d(-10%, -10%, 0);
+// 			background-position:center;
+// 			background-image: url(assets/sabine/rediscovery/drown/floatting/woodOne.png);
+// 		}
+// 		&WoodTwo {
+// 			background-size:15%;
+// 			transform:translate3d(10%, 10%, 0);
+// 			background-position: center;
+// 			background-image: url(assets/sabine/rediscovery/drown/floatting/woodTwo.png);
+// 		}
+// 		&WoodThree {
+// 			background-size:20%;		
+// 			transform:translate3d(5%, -10%, 0);
+// 			background-position:left top;
+// 			background-image: url(assets/sabine/rediscovery/drown/floatting/woodThree.png);			
+// 		}
+// 		&BoatOne {
+// 			background-position:left bottom;
+// 			transform:translate3d(-2%,2%,0);
+// 			background-image: url(assets/sabine/rediscovery/drown/floatting/boatOne.png);			
+// 		}
+// 		&SailOne {
+// 			background-position:right top;
+// 			transform:translate3d(5%,-5%,0);
+// 			background-image: url(assets/sabine/rediscovery/drown/floatting/sailOne.png);			
+// 		}
+// 		&SailTwo {
+// 			background-position:right bottom;
+// 			transform:translate3d(5%, 5%, 0);
+// 			background-image: url(assets/sabine/rediscovery/drown/floatting/sailTwo.png);			
+// 		}
+// 	}
+
+	// FLOATING ELEMENTS
+	// &Drowning {
+	// 	position: absolute;
+	// 	width:100%;
+	// 	height:100%;
+	// 	div {
+	// 		width: 100%;
+	// 		height: 100%;
+	// 		position: absolute;
+	// 		background-repeat: no-repeat;
+	// 	}
+	// 	&Background {
+	// 		background-size: 110%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/background.png);
+	// 		background-position:center;
+	// 	}
+	// 	&BasAP {
+	// 		z-index:1;
+	// 		mix-blend-mode: color-dodge;
+	// 		z-index: 9999;
+	// 		background-size:20%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/basAP.png);
+	// 	}
+	// 	&BoisAP {
+	// 		transform:translate(10%,-10%);
+	// 		z-index:1;
+	// 		background-position: center right;
+	// 		background-size:18%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/boisAP.png);
+	// 	}
+	// 	&BoisGaucheAP {
+	// 		z-index:1;
+	// 		background-position: left bottom;
+	// 		background-size:40%;
+	// 		transform:translate(-10%, -5%);
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/boisGaucheAP.png);
+	// 	}
+	// 	&BoisGauchePPOne {
+	// 		z-index:1;
+	// 		background-position: left bottom;
+	// 		background-size:15%;
+	// 		transform:translate(4%, 6%);
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/boisGauchePPOne.png);
+	// 	}
+	// 	&BoisGauchePPTwo {
+	// 		z-index:2;
+	// 		background-position: left bottom;
+	// 		background-size:15%;
+	// 		transform:translate(25%, 5%);
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/boisGauchePPTwo.png);
+	// 	}
+	// 	&BoisPP {
+	// 		transform:translate(10%, 5%);
+	// 		z-index:1;
+	// 		background-position: center right;
+	// 		background-size:18%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/boisPP.png);
+	// 	}
+	// 	&BoisRouge {
+	// 		z-index:1;
+	// 		background-size:30%;
+	// 		transform:translate(10%,5%);
+	// 		background-position: left bottom;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/boisRouge.png);
+	// 	}
+	// 	&DroiteAP {
+	// 		z-index:1;
+	// 		mix-blend-mode: color-dodge;
+	// 		background-size:20%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/droiteAP.png);
+	// 	}
+	// 	&DroitePP {
+	// 		z-index:1;
+	// 		mix-blend-mode: color-dodge;
+	// 		opacity:0.2;
+	// 		background-size:20%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/droitePP.png);
+	// 	}
+	// 	&HautAP {
+	// 		background-position: center;
+	// 		z-index:1;
+	// 		mix-blend-mode: color-dodge;
+	// 		background-size:20%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/hautAP.png);
+	// 	}
+	// 	&GauchePP {
+	// 		background-position: left bottom;
+	// 		z-index:1;
+	// 		mix-blend-mode: color-dodge;
+	// 		background-size:40%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/gauchePP.png);
+	// 	}
+	// 	&Mask {
+	// 		z-index:1;
+	// 		transform:translate(20%, -21%);
+	// 		background-size:10%;
+	// 		background-position:center;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/mask.png);
+	// 	}
+	// 	&VoileOne {
+	// 		z-index:2;
+	// 		transform: translate(-14%, -14%);
+	// 		background-position:center top;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/voileOne.png);
+	// 	}
+	// 	&VoileTwo {
+	// 		z-index:2;
+	// 		transform: translate(30%, -17%);
+	// 		background-position:center top;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/voileTwo.png);
+	// 	}
+	// 	&VoileThree {
+	// 		z-index:0;
+	// 		background-position:center;
+	// 		background-size:110%;
+	// 		background-image: url(assets/sabine/rediscovery/drown/drowning/voileThree.png);
+	// 	}
+	// }
+}

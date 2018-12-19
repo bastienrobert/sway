@@ -1,160 +1,168 @@
-.stormOcean {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 300px;
-  z-index: 2;
-  overflow: hidden;
+// .stormOcean {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 300px;
+//   z-index: 2;
+//   overflow: hidden;
 
-  div {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-  }
+//   div {
+//     position: absolute;
+//     height: 100%;
+//     width: 100%;
+//   }
 
-  .stormOceanBackground {
-    background-image: url(assets/sabine/disappearance/storm/ocean.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+//   .stormOceanBackground {
+//     background-image: url(assets/sabine/disappearance/storm/ocean.png);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//   }
 
-  .stormOceanHighlight {
-    background-image: url(assets/sabine/disappearance/storm/oceanHighlight.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+//   .stormOceanHighlight {
+//     background-image: url(assets/sabine/disappearance/storm/oceanHighlight.png);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//   }
 
-  .stormOceanOverlay {
-    background-image: url(assets/sabine/disappearance/storm/oceanOverlay.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
+//   .stormOceanOverlay {
+//     background-image: url(assets/sabine/disappearance/storm/oceanOverlay.png);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//   }
+// }
 
-.stormLightnings {
-  .stormLightningsLeft {
-    background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/left.png);
-    top: 230px;
-    left: 14%;
-    width: 200px;
-  }
+// .stormLightnings {
+//   opacity: 0;
+//   div {
+//     position: absolute;
+//     padding-bottom: 50%;
+//     background-repeat: no-repeat;
+//   }
 
-  .stormLightningsMiddleLeft {
-    background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleLeft.png);
-    top: 100px;
-    left: 32%;
-    width: 200px;
-  }
+//   .stormLightningsLeft {
+//     background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/left.png);
+//     top: 230px;
+//     left: 14%;
+//     width: 200px;
+//     z-index: 0;
+//   }
 
-  .stormLightningsMiddleRight {
-    background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleRight.png);
-    top: 180px;
-    left: 46%;
-    width: 200px;
-  }
+//   .stormLightningsMiddleLeft {
+//     background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleLeft.png);
+//     top: 100px;
+//     left: 32%;
+//     width: 200px;
+//   }
 
-  .stormLightningsRight {
-    background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/right.png);
-    top: 120px;
-    left: 70%;
-    width: 200px;
-  }
-}
+//   .stormLightningsMiddleRight {
+//     background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/middleRight.png);
+//     top: 180px;
+//     left: 46%;
+//     width: 200px;
+//   }
 
-.stormClouds {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
+//   .stormLightningsRight {
+//     background-image: url(assets/sabine/disappearance/storm/clouds/lightnings/right.png);
+//     top: 120px;
+//     left: 70%;
+//     width: 200px;
+//   }
+// }
 
-  div {
-    position: absolute;
-    padding-bottom: 50%;
-    background-repeat: no-repeat;
-  }
+// .stormClouds {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: -1;
+//   overflow: hidden;
 
-  .stormCloudsBrushSmallRight {
-    mix-blend-mode: color-dodge;
-    background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallRight.png);
-    top: 190px;
-    left: 5%;
-    width: 525px;
-    z-index: 1;
-  }
+//   div {
+//     position: absolute;
+//     padding-bottom: 50%;
+//     background-repeat: no-repeat;
+//   }
 
-  .stormCloudsPointSmall {
-    mix-blend-mode: overlay;
-    background-image: url(assets/sabine/disappearance/storm/clouds/pointSmall.png);
-    top: 40px;
-    left: 5%;
-    width: 425px;
-    z-index: 2;
-  }
+//   .stormCloudsBrushSmallRight {
+//     mix-blend-mode: color-dodge;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallRight.png);
+//     top: 190px;
+//     left: 5%;
+//     width: 525px;
+//     z-index: 2;
+//   }
 
-  .stormCloudsOrange {
-    mix-blend-mode: multiply;
-    background-image: url(assets/sabine/disappearance/storm/clouds/orange.png);
-    top: 80px;
-    left: 10%;
-    width: 665px;
-    z-index: 0;
-    opacity: 0.5;
-  }
+//   .stormCloudsPointSmall {
+//     mix-blend-mode: overlay;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/pointSmall.png);
+//     top: 40px;
+//     left: 5%;
+//     width: 425px;
+//     z-index: 2;
+//   }
 
-  .stormCloudsBrushSmallLeft {
-    mix-blend-mode: color-dodge;
-    background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallLeft.png);
-    top: 50px;
-    left: 25%;
-    width: 495px;
-    z-index: 1;
-  }
+//   .stormCloudsOrange {
+//     mix-blend-mode: multiply;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/orange.png);
+//     top: 80px;
+//     left: 10%;
+//     width: 665px;
+//     z-index: 0;
+//     opacity: 0.5;
+//   }
 
-  .stormCloudsPointBig {
-    mix-blend-mode: overlay;
-    background-image: url(assets/sabine/disappearance/storm/clouds/pointBig.png);
-    top: 20px;
-    left: 34%;
-    width: 700px;
-    z-index: 5;
-  }
-  .stormCloudsBrushBigRight {
-    mix-blend-mode: color-dodge;
-    background-image: url(assets/sabine/disappearance/storm/clouds/brushBigRight.png);
-    top: 150px;
-    left: 40%;
-    width: 545px;
-    z-index: 3;
-  }
+//   .stormCloudsBrushSmallLeft {
+//     mix-blend-mode: color-dodge;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/brushSmallLeft.png);
+//     top: 50px;
+//     left: 25%;
+//     width: 495px;
+//     z-index: 1;
+//   }
 
-  .stormCloudsBrushBigLeft {
-    mix-blend-mode: color-dodge;
-    background-image: url(assets/sabine/disappearance/storm/clouds/brushBigLeft.png);
-    top: 40px;
-    left: 60%;
-    width: 830px;
-    z-index: 5;
-  }
+//   .stormCloudsPointBig {
+//     mix-blend-mode: overlay;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/pointBig.png);
+//     top: 20px;
+//     left: 34%;
+//     width: 700px;
+//     z-index: 5;
+//   }
+//   .stormCloudsBrushBigRight {
+//     mix-blend-mode: color-dodge;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/brushBigRight.png);
+//     top: 150px;
+//     left: 40%;
+//     width: 545px;
+//     z-index: 3;
+//   }
 
-  .stormCloudsGrey {
-    mix-blend-mode: multiply;
-    background-image: url(assets/sabine/disappearance/storm/clouds/grey.png);
-    top: 180px;
-    left: 65%;
-    width: 315px;
-    z-index: 6;
-    opacity: 0.5;
-  }
+//   .stormCloudsBrushBigLeft {
+//     mix-blend-mode: color-dodge;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/brushBigLeft.png);
+//     top: 40px;
+//     left: 60%;
+//     width: 830px;
+//     z-index: 5;
+//   }
 
-  .stormCloudsBlack {
-    background-image: url(assets/sabine/disappearance/storm/clouds/black.png);
-    top: 20px;
-    left: 65%;
-    width: 525px;
-    z-index: 4;
-  }
-}
+//   .stormCloudsGrey {
+//     mix-blend-mode: multiply;
+//     background-image: url(assets/sabine/disappearance/storm/clouds/grey.png);
+//     top: 180px;
+//     left: 65%;
+//     width: 315px;
+//     z-index: 6;
+//     opacity: 0.5;
+//   }
+
+//   .stormCloudsBlack {
+//     background-image: url(assets/sabine/disappearance/storm/clouds/black.png);
+//     top: 20px;
+//     left: 65%;
+//     width: 525px;
+//     z-index: 4;
+//   }
+// }
