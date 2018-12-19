@@ -31,14 +31,14 @@ export default class Storm {
     })
 
     this.introTL.to(
-      [this.refs.background, this.refs.storm.cloud.component],
+      [this.refs.background, this.refs.storm.clouds.component],
       4,
       { backgroundColor: '#551300' },
       0
     )
 
     this.introTL.fromTo(
-      this.refs.storm.cloud.component,
+      this.refs.storm.clouds.component,
       2,
       { autoAlpha: 0 },
       { autoAlpha: 1 },
@@ -190,34 +190,34 @@ export default class Storm {
   }
 
   cloudParallax = () => {
-    TweenMax.to(this.refs.storm.cloud.brushSmallRight, 0.5, {
+    TweenMax.to(this.refs.storm.clouds.brushSmallRight, 0.5, {
       x: -(values.mouse.x / values.viewport.width) * 20,
       y: (values.mouse.y / values.viewport.height) * 10
     })
-    TweenMax.to(this.refs.storm.cloud.pointBig, 0.5, {
+    TweenMax.to(this.refs.storm.clouds.pointBig, 0.5, {
       x: (values.mouse.x / values.viewport.width) * 20,
       y: (values.mouse.y / values.viewport.height) * 10
     })
-    TweenMax.to(this.refs.storm.cloud.brushSmallLeft, 0.5, {
+    TweenMax.to(this.refs.storm.clouds.brushSmallLeft, 0.5, {
       x: (values.mouse.x / values.viewport.width) * 20,
       y: -(values.mouse.y / values.viewport.height) * 10
     })
-    TweenMax.to(this.refs.storm.cloud.black, 0.5, {
+    TweenMax.to(this.refs.storm.clouds.black, 0.5, {
       x: (values.mouse.x / values.viewport.width) * 20,
       y: -(values.mouse.y / values.viewport.height) * 10
     })
   }
 
   lightningParallax = () => {
-    TweenMax.to(this.refs.storm.lightning.left, 0.5, {
+    TweenMax.to(this.refs.storm.lightnings.left, 0.5, {
       x: -(values.mouse.x / values.viewport.width) * 20,
       y: (values.mouse.y / values.viewport.height) * 10
     })
-    TweenMax.to(this.refs.storm.lightning.middleLeft, 0.5, {
+    TweenMax.to(this.refs.storm.lightnings.middleLeft, 0.5, {
       x: (values.mouse.x / values.viewport.width) * 20,
       y: -(values.mouse.y / values.viewport.height) * 10
     })
-    TweenMax.to(this.refs.storm.lightning.middleRight, 0.5, {
+    TweenMax.to(this.refs.storm.lightnings.middleRight, 0.5, {
       x: (values.mouse.x / values.viewport.width) * 20,
       y: (values.mouse.y / values.viewport.height) * 10
     })
@@ -230,7 +230,7 @@ export default class Storm {
       yoyo: true
     })
     this.cloudTL.fromTo(
-      this.refs.storm.cloud.pointSmall,
+      this.refs.storm.clouds.pointSmall,
       5,
       {
         x: -40,
@@ -243,7 +243,7 @@ export default class Storm {
       0
     )
     this.cloudTL.fromTo(
-      this.refs.storm.cloud.orange,
+      this.refs.storm.clouds.orange,
       5,
       {
         x: 20,
@@ -256,7 +256,7 @@ export default class Storm {
       0
     )
     this.cloudTL.fromTo(
-      this.refs.storm.cloud.grey,
+      this.refs.storm.clouds.grey,
       5,
       {
         x: -30,
@@ -269,7 +269,7 @@ export default class Storm {
       0
     )
     this.cloudTL.fromTo(
-      this.refs.storm.cloud.brushBigRight,
+      this.refs.storm.clouds.brushBigRight,
       5,
       {
         x: 30,
@@ -282,7 +282,7 @@ export default class Storm {
       0
     )
     this.cloudTL.fromTo(
-      this.refs.storm.cloud.brushBigLeft,
+      this.refs.storm.clouds.brushBigLeft,
       4,
       {
         x: -40,
@@ -303,7 +303,7 @@ export default class Storm {
       yoyo: true
     })
     this.lightningTL.fromTo(
-      this.refs.storm.lightning.right,
+      this.refs.storm.lightnings.right,
       5,
       {
         x: -40,
@@ -335,7 +335,7 @@ export default class Storm {
       0
     )
     this.flashesTL.fromTo(
-      this.refs.storm.lightning.left,
+      this.refs.storm.lightnings.left,
       0.3,
       {
         opacity: 0
@@ -346,7 +346,7 @@ export default class Storm {
       0
     )
     this.flashesTL.fromTo(
-      this.refs.storm.lightning.right,
+      this.refs.storm.lightnings.right,
       0.3,
       {
         opacity: 0
@@ -357,7 +357,7 @@ export default class Storm {
       0
     )
     this.flashesTL.fromTo(
-      this.refs.storm.lightning.middleLeft,
+      this.refs.storm.lightnings.middleLeft,
       0.3,
       {
         opacity: 0
@@ -368,7 +368,7 @@ export default class Storm {
       0
     )
     this.flashesTL.fromTo(
-      this.refs.storm.lightning.middleRight,
+      this.refs.storm.lightnings.middleRight,
       0.3,
       {
         opacity: 0
@@ -390,7 +390,7 @@ export default class Storm {
 
   disableCloudParallax = () => {
     RAF.remove(this.cloudParallax)
-    const { component, ...clouds } = this.refs.storm.cloud
+    const { component, ...clouds } = this.refs.storm.clouds
     TweenMax.to(
       clouds,
       0.5,
@@ -403,7 +403,7 @@ export default class Storm {
   }
   disableLightningParallax = () => {
     RAF.remove(this.lightningParallax)
-    const { component, ...lightnings } = this.refs.storm.lightning
+    const { component, ...lightnings } = this.refs.storm.lightnings
     TweenMax.to(
       lightnings,
       0.5,
