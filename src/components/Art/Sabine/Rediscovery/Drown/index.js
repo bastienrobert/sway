@@ -19,14 +19,67 @@ export default class Drown {
       }
     })
 
-    this.introTL.to(this.refs.storm.component, 1, {
-      autoAlpha: 0
-    })
+    // Set background color
+    this.introTL.to(this.refs.background, 1, { backgroundColor: '#021b66' }, 0)
 
-    this.introTL.to(this.refs.boat.component, 1, {
-      autoAlpha: 0
-    })
+    // -> Hide storm crash component
+    this.introTL.to(
+      this.refs.storm.crash.component,
+      1,
+      {
+        autoAlpha: 0
+      },
+      0
+    )
 
+    // -> Show blueSea component
+    this.introTL.fromTo(
+      this.refs.drown.blueSea.component,
+      1,
+      {
+        autoAlpha: 0
+      },
+      {
+        autoAlpha: 1
+      },
+      0
+    )
+
+    // Hide blueSea component
+    this.introTL.to(
+      this.refs.drown.blueSea.component,
+      1,
+      {
+        autoAlpha: 0
+      },
+      5
+    )
+
+    // -> Show drowning component
+    this.introTL.fromTo(
+      this.refs.drown.drowning.component,
+      1,
+      {
+        autoAlpha: 0
+      },
+      {
+        autoAlpha: 1
+      },
+      5
+    )
+
+    // this.introTL.fromTo(
+    //   this.refs.storm.crash,
+    //   1,
+    //   {
+    //     autoAlpha: 0
+    //   },
+    //   {
+    //     autoAlpha: 1
+    //   }
+    // )
+
+    // CUBE - NEED TO BE DELETED
     this.introTL.to(this.refs.cube, 2, {
       x: -50
     })

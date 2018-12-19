@@ -39,10 +39,12 @@ export default class Intro extends TimelineController {
       }
     })
 
+    // Hide ocean and boat on game start
     this.introTL.to([this.refs.ocean.component, this.refs.boat.component], 1, {
       autoAlpha: 0
     })
 
+    // -> Show calle component
     this.introTL.fromTo(
       this.refs.calle.component,
       1,
@@ -55,6 +57,7 @@ export default class Intro extends TimelineController {
       0
     )
 
+    // Hide calle component
     this.introTL.to(
       this.refs.calle.component,
       1,
@@ -64,6 +67,7 @@ export default class Intro extends TimelineController {
       2
     )
 
+    // -> Show statue component
     this.introTL.fromTo(
       this.refs.statue.component,
       1,
@@ -76,6 +80,7 @@ export default class Intro extends TimelineController {
       2
     )
 
+    // Hide statue component
     this.introTL.to(
       this.refs.statue.component,
       1,
@@ -85,6 +90,7 @@ export default class Intro extends TimelineController {
       4
     )
 
+    // -> Show ocean component
     this.introTL.to(
       this.refs.ocean.component,
       1,
@@ -94,9 +100,10 @@ export default class Intro extends TimelineController {
       4
     )
 
+    // Animate boat to middle of the screen
     this.introTL.fromTo(
       this.refs.boat.component,
-      8,
+      4,
       {
         autoAlpha: 0,
         x: -100
@@ -111,6 +118,7 @@ export default class Intro extends TimelineController {
       }
     )
 
+    // CUBE - NEED TO BE DELETE
     this.introTL.fromTo(
       this.refs.cube,
       2,
