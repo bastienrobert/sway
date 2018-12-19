@@ -9,18 +9,13 @@ import css from './styles.scss'
 
 export default class Sabine extends Oeuvre {
   timelines = timelines
-  elements = elements
 
   render() {
     this.references = {}
 
     return (
       <div className={css.Sabine}>
-        {createElements(
-          this.elements.dom,
-          this.elements.opts.css,
-          this.references
-        )}
+        {createElements(elements.dom, elements.opts.css, this.references)}
       </div>
     )
   }
