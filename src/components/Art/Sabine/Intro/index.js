@@ -96,14 +96,18 @@ export default class Intro extends TimelineController {
 
     this.introTL.fromTo(
       this.refs.boat.component,
-      1,
+      8,
       {
         autoAlpha: 0,
         x: -100
       },
       {
         autoAlpha: 1,
-        x: (values.viewport.width / 3) * 2 - this.BCRs.boat.width / 2
+        x: (values.viewport.width / 3) * 2 - this.BCRs.boat.width / 2,
+        onStart: () => {
+          this.oceanTL.play()
+          RAF.add(this.oceanParallax)
+        }
       }
     )
 
@@ -118,8 +122,6 @@ export default class Intro extends TimelineController {
         x: 100
       }
     )
-
-    this.introTL.add(this.oceanTL)
   }
 
   initOceanTL() {
@@ -163,7 +165,7 @@ export default class Intro extends TimelineController {
   onOceanResize = () => {
     this.BCRs.boat = this.refs.boat.component.getBoundingClientRect()
     TweenMax.set(this.refs.boat.component, {
-      x: values.viewport.width / 2 - this.BCRs.boat.width / 2
+      x: (values.viewport.width / 3) * 2 - this.BCRs.boat.width / 2
     })
     this.initOceanTL()
   }
@@ -196,6 +198,7 @@ export default class Intro extends TimelineController {
       yoyo: true,
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
+          this.disableOceanParallax()
           Emitter.off('resize', this.onOceanResize)
           this.pendingTL.pause()
           this.pendingIsOver()
