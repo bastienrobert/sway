@@ -12,11 +12,11 @@ export default {
       children: [
         { ref: 'fog' },
         {
-          ref: 'cloud',
+          ref: 'clouds',
           children: [{ ref: 'dark' }, { ref: 'double' }, { ref: 'single' }]
         },
         {
-          ref: 'wave',
+          ref: 'waves',
           children: [
             { ref: 'big' },
             { ref: 'leftClear' },
@@ -36,7 +36,7 @@ export default {
       ref: 'storm',
       children: [
         {
-          ref: 'lightning',
+          ref: 'lightnings',
           children: [
             { ref: 'left' },
             { ref: 'middleLeft' },
@@ -45,7 +45,7 @@ export default {
           ]
         },
         {
-          ref: 'cloud',
+          ref: 'clouds',
           children: [
             { ref: 'brushSmallRight' },
             { ref: 'pointSmall' },

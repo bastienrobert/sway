@@ -10,7 +10,7 @@
     background-size: cover;
   }
 
-  .oceanCloud {
+  .oceanClouds {
     position: absolute;
     bottom: 0;
     height: 100%;
@@ -26,7 +26,7 @@
       background-repeat: no-repeat;
     }
 
-    .oceanCloudDark {
+    .oceanCloudsDark {
       top: 90px;
       left: 50%;
       padding-bottom: 15%;
@@ -34,14 +34,14 @@
       background-image: url(assets/sabine/intro/ocean/cloudDark.png);
     }
 
-    .oceanCloudDouble {
+    .oceanCloudsDouble {
       top: 80px;
       left: 40%;
       padding-bottom: 10%;
       background-image: url(assets/sabine/intro/ocean/cloudDouble.png);
     }
 
-    .oceanCloudSingle {
+    .oceanCloudsSingle {
       top: 65px;
       left: 60%;
       padding-bottom: 15%;
@@ -49,7 +49,7 @@
     }
   }
 
-  .oceanWave {
+  .oceanWaves {
     position: absolute;
     bottom: 0;
     height: 100%;
@@ -67,28 +67,28 @@
       background-repeat: no-repeat;
     }
 
-    .oceanWaveBig {
+    .oceanWavesBig {
       width: 80%;
       min-width: 600px;
       left: 30%;
       background-image: url(assets/sabine/intro/ocean/waveBig.png);
     }
 
-    .oceanWaveLeftClear {
+    .oceanWavesLeftClear {
       width: 30%;
       left: 10%;
       z-index: -1;
       background-image: url(assets/sabine/intro/ocean/waveLeftClear.png);
     }
 
-    .oceanWaveLeftDark {
+    .oceanWavesLeftDark {
       width: 20%;
       left: 0;
       background-position: bottom left;
       background-image: url(assets/sabine/intro/ocean/waveLeftDark.png);
     }
 
-    .oceanWaveLeftTransparent {
+    .oceanWavesLeftTransparent {
       width: 30%;
       padding-bottom: 5%;
       left: 10%;
@@ -97,14 +97,14 @@
       background-image: url(assets/sabine/intro/ocean/waveLeftTransparent.png);
     }
 
-    .oceanWaveRightClear {
+    .oceanWavesRightClear {
       width: 40%;
       right: 5%;
       z-index: -1;
       background-image: url(assets/sabine/intro/ocean/waveRightClear.png);
     }
 
-    .oceanWaveRightTransparent {
+    .oceanWavesRightTransparent {
       width: 30%;
       padding-bottom: 5%;
       right: 0;
