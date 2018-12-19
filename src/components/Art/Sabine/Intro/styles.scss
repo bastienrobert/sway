@@ -20,6 +20,7 @@
     div {
       position: absolute;
       width: 400px;
+      left: 0;
       transform: translateX(-50%);
       background-size: contain;
       background-position: center;
@@ -28,22 +29,18 @@
 
     .oceanCloudsDark {
       top: 90px;
-      left: 50%;
       padding-bottom: 15%;
-      mix-blend-mode: overlay;
       background-image: url(assets/sabine/intro/ocean/cloudDark.png);
     }
 
     .oceanCloudsDouble {
       top: 80px;
-      left: 40%;
       padding-bottom: 10%;
       background-image: url(assets/sabine/intro/ocean/cloudDouble.png);
     }
 
     .oceanCloudsSingle {
       top: 65px;
-      left: 60%;
       padding-bottom: 15%;
       background-image: url(assets/sabine/intro/ocean/cloudSingle.png);
     }
@@ -55,6 +52,7 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
+    z-index: 1;
 
     div {
       position: absolute;
@@ -71,19 +69,21 @@
       width: 80%;
       min-width: 600px;
       left: 30%;
+      bottom: -40px;
       background-image: url(assets/sabine/intro/ocean/waveBig.png);
     }
 
-    .oceanWavesLeftClear {
+    .oceanWavesLeftLight {
       width: 30%;
       left: 10%;
       z-index: -1;
-      background-image: url(assets/sabine/intro/ocean/waveLeftClear.png);
+      background-image: url(assets/sabine/intro/ocean/waveLeftLight.png);
     }
 
     .oceanWavesLeftDark {
-      width: 20%;
-      left: 0;
+      width: 25%;
+      left: -40px;
+      bottom: -40px;
       background-position: bottom left;
       background-image: url(assets/sabine/intro/ocean/waveLeftDark.png);
     }
@@ -97,11 +97,11 @@
       background-image: url(assets/sabine/intro/ocean/waveLeftTransparent.png);
     }
 
-    .oceanWavesRightClear {
+    .oceanWavesRightLight {
       width: 40%;
       right: 5%;
       z-index: -1;
-      background-image: url(assets/sabine/intro/ocean/waveRightClear.png);
+      background-image: url(assets/sabine/intro/ocean/waveRightLight.png);
     }
 
     .oceanWavesRightTransparent {
@@ -111,6 +111,180 @@
       background-position: top;
       background-size: cover;
       background-image: url(assets/sabine/intro/ocean/waveRightTransparent.png);
+    }
+  }
+}
+
+.calle {
+  .calleBackground,
+  .calleOcean {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .calleBackground {
+    background-image: url(assets/sabine/intro/calle/background.png);
+  }
+
+  .calleOcean {
+    background-image: url(assets/sabine/intro/calle/ocean.png);
+  }
+
+  .calleClouds {
+    overflow: hidden;
+
+    div {
+      position: absolute;
+      width: 100%;
+      background-size: cover;
+      background-position: top;
+      bottom: 0;
+    }
+
+    &One {
+      background-image: url(assets/sabine/intro/calle/clouds/one.png);
+      padding-bottom: 30%;
+      z-index: 2;
+    }
+
+    &Two {
+      background-image: url(assets/sabine/intro/calle/clouds/two.png);
+      padding-bottom: 28%;
+      z-index: 1;
+    }
+
+    &Three {
+      background-image: url(assets/sabine/intro/calle/clouds/three.png);
+      padding-bottom: 29%;
+    }
+  }
+
+  .calleMetalBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 20%;
+    background-size: cover;
+    background-image: url(assets/sabine/intro/calle/metalBox.png);
+    z-index: 5;
+  }
+}
+
+.statue {
+  &Statue {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    min-height: 500px;
+    background-image: url(assets/sabine/intro/statue/statue.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+
+  .statueCottons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(assets/sabine/intro/statue/background.png);
+
+    div {
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &One {
+      background-image: url(assets/sabine/intro/statue/cottons/one.png);
+      top: -30px;
+      left: -30px;
+      min-width: 600px;
+      // min-height: 500px;
+      width: 50%;
+      padding-bottom: 50%;
+      background-position: top left;
+    }
+
+    &Two {
+      background-image: url(assets/sabine/intro/statue/cottons/two.png);
+      top: -60px;
+      left: 50%;
+      min-width: 900px;
+      // min-height: 900px;
+      width: 50%;
+      background-position: top center;
+      padding-bottom: 50%;
+      transform: translateX(-50%);
+    }
+
+    &Three {
+      background-image: url(assets/sabine/intro/statue/cottons/three.png);
+      top: -150px;
+      right: -150px;
+      min-width: 800px;
+      // min-height: 500px;
+      width: 50%;
+      padding-bottom: 50%;
+      background-position: top right;
+    }
+
+    &Four {
+      background-image: url(assets/sabine/intro/statue/cottons/four.png);
+      top: 55%;
+      left: -120px;
+      min-width: 1000px;
+      // min-height: 500px;
+      width: 50%;
+      padding-bottom: 50%;
+      background-position: center left;
+      transform: translateY(-50%);
+    }
+
+    &Five {
+      background-image: url(assets/sabine/intro/statue/cottons/five.png);
+      top: 55%;
+      right: -120px;
+      min-width: 800px;
+      // min-height: 500px;
+      width: 50%;
+      padding-bottom: 50%;
+      background-position: center right;
+      transform: translateY(-50%);
+    }
+
+    &Six {
+      background-image: url(assets/sabine/intro/statue/cottons/six.png);
+      bottom: -80px;
+      left: -50px;
+      min-width: 900px;
+      // min-height: 500px;
+      width: 50%;
+      padding-top: 50%;
+      background-position: bottom right;
+    }
+
+    &Seven {
+      background-image: url(assets/sabine/intro/statue/cottons/seven.png);
+      bottom: -80px;
+      right: -50px;
+      width: 40%;
+      // height: 50%;
+      padding-bottom: 60%;
+      background-position: bottom right;
+      z-index: 1;
     }
   }
 }

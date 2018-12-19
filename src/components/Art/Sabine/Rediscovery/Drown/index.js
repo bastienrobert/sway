@@ -19,6 +19,14 @@ export default class Drown {
       }
     })
 
+    this.introTL.to(this.refs.storm.component, 1, {
+      autoAlpha: 0
+    })
+
+    this.introTL.to(this.refs.boat.component, 1, {
+      autoAlpha: 0
+    })
+
     this.introTL.to(this.refs.cube, 2, {
       x: -50
     })
