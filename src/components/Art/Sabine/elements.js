@@ -66,34 +66,61 @@ export default {
       ref: 'storm',
       children: [
         {
-          ref: 'lightnings',
+          ref: 'breakbot',
           children: [
-            { ref: 'left' },
-            { ref: 'middleLeft' },
-            { ref: 'middleRight' },
-            { ref: 'right' }
+            {
+              ref: 'lightnings',
+              children: [
+                { ref: 'left' },
+                { ref: 'middleLeft' },
+                { ref: 'middleRight' },
+                { ref: 'right' }
+              ]
+            },
+            {
+              ref: 'clouds',
+              children: [
+                { ref: 'brushSmallRight' },
+                { ref: 'pointSmall' },
+                { ref: 'orange' },
+                { ref: 'brushSmallLeft' },
+                { ref: 'pointBig' },
+                { ref: 'brushBigRight' },
+                { ref: 'brushBigLeft' },
+                { ref: 'grey' },
+                { ref: 'black' }
+              ]
+            },
+            {
+              ref: 'ocean',
+              children: [
+                { ref: 'background' },
+                { ref: 'highlight' },
+                { ref: 'overlay' }
+              ]
+            }
           ]
         },
         {
-          ref: 'clouds',
+          ref: 'crash',
           children: [
-            { ref: 'brushSmallRight' },
-            { ref: 'pointSmall' },
-            { ref: 'orange' },
-            { ref: 'brushSmallLeft' },
-            { ref: 'pointBig' },
-            { ref: 'brushBigRight' },
-            { ref: 'brushBigLeft' },
+            {
+              ref: 'floatting',
+              children: [
+                { ref: 'woodOne' },
+                { ref: 'woodTwo' },
+                { ref: 'woodThree' },
+                { ref: 'boatOne' },
+                { ref: 'sailOne' },
+                { ref: 'sailTwo' }
+              ]
+            },
+            { ref: 'lighter' },
             { ref: 'grey' },
-            { ref: 'black' }
-          ]
-        },
-        {
-          ref: 'ocean',
-          children: [
-            { ref: 'background' },
-            { ref: 'highlight' },
-            { ref: 'overlay' }
+            { ref: 'black' },
+            { ref: 'flashGrey' },
+            { ref: 'flashRedDark' },
+            { ref: 'flashRedLight' }
           ]
         }
       ]
@@ -102,63 +129,41 @@ export default {
       ref: 'drown',
       children: [
         {
-          ref: 'redSea',
-          children: [
-            {ref: 'lighter'},
-            {ref: 'grey'},
-            {ref: 'black'},
-            {ref: 'flashGrey'},
-            {ref: 'flashRedDark'},
-            {ref: 'flashRedLight'}
-          ]
-        },
-        {
           ref: 'blueSea',
           children: [
-            {ref: 'firstPointBlue'},
-            {ref: 'secondPointBlue'},
-            {ref: 'firstDarkBlue'},
-            {ref: 'secondDarkBlue'},
-            {ref: 'firstDarkerBlue'},
-            {ref: 'secondDarkerBlue'},
-            {ref: 'firstBlue'},
-            {ref: 'secondBlue'}
-          ]
-        },
-        {
-          ref: 'floatting',
-          children: [
-            {ref: 'woodOne'},
-            {ref: 'woodTwo'},
-            {ref: 'woodThree'},
-            {ref: 'boatOne'},
-            {ref: 'sailOne'},
-            {ref: 'sailTwo'}
+            { ref: 'firstPointBlue' },
+            { ref: 'secondPointBlue' },
+            { ref: 'firstDarkBlue' },
+            { ref: 'secondDarkBlue' },
+            { ref: 'firstDarkerBlue' },
+            { ref: 'secondDarkerBlue' },
+            { ref: 'firstBlue' },
+            { ref: 'secondBlue' }
           ]
         },
         {
           ref: 'drowning',
           children: [
-            {ref: 'background'},
-            {ref: 'basAP'},
-            {ref: 'boisAP'},
-            {ref: 'boisGaucheAP'},
-            {ref: 'boisGauchePPOne'},
-            {ref: 'boisGauchePPTwo'},
-            {ref: 'boisPP'},
-            {ref: 'boisRouge'},
-            {ref: 'droiteAP1'},
-            {ref: 'droitePP1'},
-            {ref: 'gauchePP1'},
-            {ref: 'hautAP1'},
-            {ref: 'droiteAP'},
-            {ref: 'droitePP'},
-            {ref: 'gauchePP'},
-            {ref: 'hautAP'},
-            {ref: 'mask'},
-            {ref: 'voileOne'},
-            {ref: 'voileTwo'},
-            {ref: 'voileThree'}
+            { ref: 'background' },
+            { ref: 'basAP' },
+            { ref: 'boisAP' },
+            { ref: 'boisGaucheAP' },
+            { ref: 'boisGauchePPOne' },
+            { ref: 'boisGauchePPTwo' },
+            { ref: 'boisPP' },
+            { ref: 'boisRouge' },
+            { ref: 'droiteAP1' },
+            { ref: 'droitePP1' },
+            { ref: 'gauchePP1' },
+            { ref: 'hautAP1' },
+            { ref: 'droiteAP' },
+            { ref: 'droitePP' },
+            { ref: 'gauchePP' },
+            { ref: 'hautAP' },
+            { ref: 'mask' },
+            { ref: 'voileOne' },
+            { ref: 'voileTwo' },
+            { ref: 'voileThree' }
           ]
         }
       ]
