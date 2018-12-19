@@ -19,10 +19,10 @@ export default {
           ref: 'waves',
           children: [
             { ref: 'big' },
-            { ref: 'leftClear' },
+            { ref: 'leftLight' },
             { ref: 'leftDark' },
             { ref: 'leftTransparent' },
-            { ref: 'rightClear' },
+            { ref: 'rightLight' },
             { ref: 'rightTransparent' }
           ]
         }
@@ -31,6 +31,36 @@ export default {
     {
       ref: 'boat',
       children: [{ ref: 'matt' }, { ref: 'hull' }]
+    },
+    {
+      ref: 'calle',
+      children: [
+        { ref: 'ocean' },
+        { ref: 'background' },
+        { ref: 'metalBox' },
+        {
+          ref: 'clouds',
+          children: [{ ref: 'one' }, { ref: 'two' }, { ref: 'three' }]
+        }
+      ]
+    },
+    {
+      ref: 'statue',
+      children: [
+        { ref: 'statue' },
+        {
+          ref: 'cottons',
+          children: [
+            { ref: 'one' },
+            { ref: 'two' },
+            { ref: 'three' },
+            { ref: 'four' },
+            { ref: 'five' },
+            { ref: 'six' },
+            { ref: 'seven' }
+          ]
+        }
+      ]
     },
     {
       ref: 'storm',

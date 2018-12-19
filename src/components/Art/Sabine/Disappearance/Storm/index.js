@@ -30,6 +30,10 @@ export default class Storm {
       }
     })
 
+    this.introTL.to(this.refs.ocean.component, 1, {
+      autoAlpha: 0
+    })
+
     this.introTL.to(
       [this.refs.background, this.refs.storm.clouds.component],
       4,

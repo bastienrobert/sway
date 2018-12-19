@@ -16,6 +16,7 @@ export default class Oeuvre extends Component {
     this.initTLs()
     this.currentTLs = this.intro
     this.currentTLs.current = 0
+    console.log(this.references)
   }
 
   initTLs() {
