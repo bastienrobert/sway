@@ -130,34 +130,34 @@ export default class Storm {
   }
 
   initPendingTL() {
-    // this.initFlashesTL()
-    // this.initCloudTL()
-    // this.initLightningTL()
+    this.initFlashesTL()
+    this.initCloudTL()
+    this.initLightningTL()
     this.pendingTL = new TimelineMax({
       paused: true,
       repeat: -1,
       yoyo: true,
       onStart: () => {
-        // RAF.add(this.oceanParallax)
-        // RAF.add(this.cloudParallax)
-        // RAF.add(this.lightningParallax)
-        // !this.oceanTL.isActive() && this.oceanTL.restart()
-        // !this.cloudTL.isActive() && this.cloudTL.restart()
-        // !this.lightningTL.isActive() && this.lightningTL.restart()
-        // !this.flashesTL.isActive() && this.flashesTL.restart()
+        RAF.add(this.oceanParallax)
+        RAF.add(this.cloudParallax)
+        RAF.add(this.lightningParallax)
+        !this.oceanTL.isActive() && this.oceanTL.restart()
+        !this.cloudTL.isActive() && this.cloudTL.restart()
+        !this.lightningTL.isActive() && this.lightningTL.restart()
+        !this.flashesTL.isActive() && this.flashesTL.restart()
       },
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
           Emitter.off('resize', this.onResize)
-          // this.disableOceanParallax()
-          // this.disableCloudParallax()
-          // this.disableLightningParallax()
-          // this.cloudTL.pause()
-          // this.oceanTL.pause()
-          // this.pendingTL.pause()
-          // this.lightningTL.pause()
-          // this.flashesTL.pause()
-          // this.pendingIsOver()
+          this.disableOceanParallax()
+          this.disableCloudParallax()
+          this.disableLightningParallax()
+          this.cloudTL.pause()
+          this.oceanTL.pause()
+          this.pendingTL.pause()
+          this.lightningTL.pause()
+          this.flashesTL.pause()
+          this.pendingIsOver()
         }
       }
     })
