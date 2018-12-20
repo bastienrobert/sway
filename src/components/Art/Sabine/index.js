@@ -16,7 +16,7 @@ export default class Sabine extends Oeuvre {
 
     return (
       <div className={css.Sabine}>
-        <GsapTools />
+        {/* <GsapTools /> */}
         {createElements(elements.dom, elements.opts.css, this.references)}
       </div>
     )

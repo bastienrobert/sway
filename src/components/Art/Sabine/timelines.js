@@ -15,7 +15,7 @@ export default {
     {
       title: i18n.sabine.decisions[0].title,
       timelines: Disappearance,
-      negative: false,
+      negative: true,
       choices: [
         {
           label: '1'
@@ -31,7 +31,7 @@ export default {
     {
       title: i18n.sabine.decisions[1].title,
       timelines: Rediscovery,
-      negative: true,
+      negative: false,
       choices: [
         {
           label: '4'
