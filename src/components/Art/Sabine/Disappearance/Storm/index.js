@@ -17,15 +17,34 @@ export default class Storm {
   initIntroTL() {
     this.initBoatIntroTL()
     this.initOceanTL()
+    this.initFlashesTL()
+    this.initCloudTL()
+    this.initLightningTL()
 
     this.introTL = new TimelineMax({
       paused: true,
       onStart: () => {
         Emitter.on('resize', this.onResize)
-        this.oceanTL.restart()
+        RAF.add(this.cloudParallax)
+        RAF.add(this.lightningParallax)
+        RAF.add(this.oceanParallax)
+        !this.oceanTL.isActive() && this.oceanTL.restart()
+        !this.cloudTL.isActive() && this.cloudTL.restart()
+        !this.lightningTL.isActive() && this.lightningTL.restart()
+        !this.flashesTL.isActive() && this.flashesTL.restart()
       },
       onComplete: () => {
+        Emitter.off('resize', this.onResize)
+        this.disableOceanParallax()
+        this.disableCloudParallax()
+        this.disableLightningParallax()
+        this.cloudTL.pause()
+        this.oceanTL.pause()
+        this.pendingTL.pause()
+        this.lightningTL.pause()
+        this.flashesTL.pause()
         this.introIsOver()
+
         this.pendingTL.play()
       }
     })
@@ -51,6 +70,15 @@ export default class Storm {
       { autoAlpha: 1 },
       0
     )
+    this.introTL.fromTo(
+      this.refs.storm.breakbot.lightnings.component,
+      2, {
+        autoAlpha: 0
+      }, {
+        autoAlpha: 1
+      },
+      0
+    )
 
     // -> Boat animation to go to the middle of the screen
     this.introTL.add(this.boatIntroTL, 0)
@@ -59,7 +87,7 @@ export default class Storm {
     this.introTL.fromTo(
       this.refs.storm.breakbot.ocean.component,
       4,
-      { autoAlpha: 0, y: 200 },
+      { autoAlpha: 0, y: 180 },
       { autoAlpha: 1, y: 0, ease: Expo.easeInOut },
       0
     )
@@ -71,7 +99,7 @@ export default class Storm {
       {
         autoAlpha: 0
       },
-      5
+      11
     )
 
     // -> Hide boat component
@@ -81,7 +109,7 @@ export default class Storm {
       {
         autoAlpha: 0
       },
-      5
+      11
     )
 
     // -> Set background color
@@ -91,7 +119,7 @@ export default class Storm {
       {
         backgroundColor: '#545453'
       },
-      5
+      11
     )
 
     // -> Show crash component
@@ -100,7 +128,7 @@ export default class Storm {
       1,
       { autoAlpha: 0 },
       { autoAlpha: 1 },
-      5
+      11
     )
   }
 
@@ -118,7 +146,7 @@ export default class Storm {
 
     this.boatIntroTL.fromTo(
       this.refs.boat.component,
-      4,
+      10,
       { x: values.viewport.width / 10 - boatBCR.width / 2 },
       {
         y: 10,
@@ -171,33 +199,20 @@ export default class Storm {
   }
 
   initPendingTL() {
-    this.initFlashesTL()
-    this.initCloudTL()
-    this.initLightningTL()
+    this.initSeaLight()
+
     this.pendingTL = new TimelineMax({
       paused: true,
       repeat: -1,
       yoyo: true,
       onStart: () => {
-        RAF.add(this.oceanParallax)
-        RAF.add(this.cloudParallax)
-        RAF.add(this.lightningParallax)
-        !this.oceanTL.isActive() && this.oceanTL.restart()
-        !this.cloudTL.isActive() && this.cloudTL.restart()
-        !this.lightningTL.isActive() && this.lightningTL.restart()
-        !this.flashesTL.isActive() && this.flashesTL.restart()
+        RAF.add(this.floattingParallax)
+        !this.seaLightTL.isActive() && this.seaLightTL.restart()
       },
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
-          Emitter.off('resize', this.onResize)
-          // this.disableOceanParallax()
-          // this.disableCloudParallax()
-          // this.disableLightningParallax()
-          // this.cloudTL.pause()
-          // this.oceanTL.pause()
-          // this.pendingTL.pause()
-          // this.lightningTL.pause()
-          // this.flashesTL.pause()
+          this.disableFloattingParallax()
+          this.seaLightTL.pause()
           this.pendingIsOver()
         }
       }
@@ -266,6 +281,25 @@ export default class Storm {
     TweenMax.to(this.refs.storm.breakbot.lightnings.middleRight, 0.5, {
       x: (values.mouse.x / values.viewport.width) * 20,
       y: (values.mouse.y / values.viewport.height) * 10
+    })
+  }
+
+  floattingParallax = () => {
+    TweenMax.to(this.refs.storm.crash.floatting.woodThree, 0.5, {
+      xPercent: '+' + (-values.mouse.x / values.viewport.width) * 4,
+      yPercent: '+' + (values.mouse.y / values.viewport.height) * 2
+    })
+    TweenMax.to([this.refs.storm.crash.floatting.woodOne, this.refs.storm.crash.floatting.woodTwo], 0.5, {
+      xPercent: '+' + (values.mouse.x / values.viewport.width) * 4,
+      yPercent: '+' + (-values.mouse.y / values.viewport.height) * 2
+    })
+    TweenMax.to([this.refs.storm.crash.floatting.sailOne, this.refs.storm.crash.floatting.boatOne], 0.5, {
+      xPercent: '+' + (values.mouse.x / values.viewport.width) * 2,
+      yPercent: '+' + (values.mouse.y / values.viewport.height) * 2
+    })
+    TweenMax.to(this.refs.storm.crash.floatting.sailTwo, 0.5, {
+      xPercent: '+' + (values.mouse.x / values.viewport.width) * 2,
+      yPercent: '+' + (-values.mouse.y / values.viewport.height) * 4
     })
   }
 
@@ -414,6 +448,43 @@ export default class Storm {
     )
   }
 
+
+  initSeaLight(){
+    this.seaLightTL = new TimelineMax({
+      paused: true,
+      repeat: -1,
+      yoyo: true
+    })
+    this.seaLightTL.fromTo(
+      this.refs.storm.crash.redSea.flashGrey,
+      0.2,
+      {
+        opacity:1
+      },{
+        opacity:0
+      },
+      0
+    )
+    this.seaLightTL.fromTo(
+      this.refs.storm.crash.redSea.flashRedDark,
+      0.2, {
+        opacity: 0
+      }, {
+        opacity: 1
+      },
+      0.2
+    )
+    this.seaLightTL.fromTo(
+      this.refs.storm.crash.redSea.flashRedLight,
+      0.5, {
+        opacity: 0
+      }, {
+        opacity: 1
+      },
+      0.4
+    )
+  }
+
   disableOceanParallax = () => {
     RAF.remove(this.oceanParallax)
     TweenMax.to(this.refs.storm.breakbot.ocean.overlay, 0.5, {
@@ -442,6 +513,21 @@ export default class Storm {
       lightnings,
       0.5,
       {
+        x: 0,
+        y: 0
+      },
+      0.2
+    )
+  }
+  disableFloattingParallax = () => {
+    RAF.remove(this.floattingParallax)
+    const {
+      component,
+      ...floatting
+    } = this.refs.storm.crash.floatting
+    TweenMax.to(
+      floatting,
+      0.5, {
         x: 0,
         y: 0
       },
