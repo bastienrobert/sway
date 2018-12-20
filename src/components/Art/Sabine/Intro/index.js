@@ -234,7 +234,6 @@ export default class Intro extends TimelineController {
       0
     )
   }
-
   initBoatTL() {
     this.boatTL = new TimelineMax({ paused: true })
 
@@ -312,6 +311,7 @@ export default class Intro extends TimelineController {
     )
   }
 
+
   cottonsParallax = () => {
     TweenMax.to(
       [this.refs.statue.cottons.one, this.refs.statue.cottons.three],
@@ -362,6 +362,7 @@ export default class Intro extends TimelineController {
   }
 
   disableOceanParallax = () => {
+
     this.oceanParallaxEnabled = false
     RAF.remove(this.oceanParallax)
   }

@@ -105,6 +105,17 @@ export default {
           ref: 'crash',
           children: [
             {
+              ref: 'redSea',
+              children: [
+                { ref: 'lighter' },
+                { ref: 'grey' },
+                { ref: 'black' },
+                { ref: 'flashGrey' },
+                { ref: 'flashRedDark' },
+                { ref: 'flashRedLight' }
+              ]
+            },
+            {
               ref: 'floatting',
               children: [
                 { ref: 'woodOne' },
@@ -112,15 +123,10 @@ export default {
                 { ref: 'woodThree' },
                 { ref: 'boatOne' },
                 { ref: 'sailOne' },
-                { ref: 'sailTwo' }
+                { ref: 'sailTwo'}
               ]
-            },
-            { ref: 'lighter' },
-            { ref: 'grey' },
-            { ref: 'black' },
-            { ref: 'flashGrey' },
-            { ref: 'flashRedDark' },
-            { ref: 'flashRedLight' }
+            }
+            
           ]
         }
       ]

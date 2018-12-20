@@ -167,40 +167,50 @@
 }
 
 .stormCrash {
-  background-color: #545453;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  div {
-    width: 110%;
-    height: 110%;
-    position: absolute;
-    background-size: 110%;
-    background-repeat: no-repeat;
-    background-position: center;
-    top: -5%;
-    left: -5%;
+  overflow: hidden;
+  &RedSea{
+      background-color: #545453;
+    div {
+      width: 110%;
+      height: 110%;
+      position: absolute;
+      background-size: 110%;
+      background-repeat: no-repeat;
+      background-position: center;
+      top: -5%;
+      left: -5%;
+    }
+
+    &Lighter {
+      background-image: url(assets/sabine/rediscovery/drown/redSea/lighter.png);
+    }
+
+    &Grey {
+      background-image: url(assets/sabine/rediscovery/drown/redSea/grey.png);
+    }
+
+    &Black {
+      background-image: url(assets/sabine/rediscovery/drown/redSea/black.png);
+    }
+
+    &FlashGrey {
+      background-image: url(assets/sabine/rediscovery/drown/redSea/flashGrey.png);
+    }
+
+    &FlashRedDark {
+      background-image: url(assets/sabine/rediscovery/drown/redSea/flashRedDark.png);
+    }
+
+    &FlashRedLight {
+      background-image: url(assets/sabine/rediscovery/drown/redSea/flashRedLight.png);
+    }
   }
-  &Lighter {
-    background-image: url(assets/sabine/rediscovery/drown/redSea/lighter.png);
-  }
-  &Grey {
-    background-image: url(assets/sabine/rediscovery/drown/redSea/grey.png);
-  }
-  &Black {
-    background-image: url(assets/sabine/rediscovery/drown/redSea/black.png);
-  }
-  &FlashGrey {
-    background-image: url(assets/sabine/rediscovery/drown/redSea/flashGrey.png);
-  }
-  &FlashRedDark {
-    background-image: url(assets/sabine/rediscovery/drown/redSea/flashRedDark.png);
-  }
-  &FlashRedLight {
-    background-image: url(assets/sabine/rediscovery/drown/redSea/flashRedLight.png);
-  }
+  
 
   &Floatting {
     position: absolute;

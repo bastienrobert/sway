@@ -48,14 +48,14 @@ export default class Drown {
     // Hide blueSea component
     this.introTL.to(
       this.refs.drown.blueSea.component,
-      1,
+      2,
       {
         autoAlpha: 0
       },
-      5
+      2
     )
 
-    // -> Show drowning component
+    // Show drowning component
     this.introTL.fromTo(
       this.refs.drown.drowning.component,
       1,
@@ -65,7 +65,36 @@ export default class Drown {
       {
         autoAlpha: 1
       },
-      5
+      4
+    )
+
+    // Transition to scene 2
+    this.introTL.to(
+      this.refs.drown.drowning.component,
+      5,
+      { 
+        scale: 1.7, 
+        force3D: false,
+        x: -550,
+        y: 300,
+      },
+      8
+    )
+    
+    this.introTL.to(
+      [this.refs.drown.drowning.voileOne,this.refs.drown.drowning.voileTwo],
+      2,
+      {
+        y:-600,
+      },
+      8
+    )
+    this.introTL.to(
+      [this.refs.drown.drowning.voileOne, this.refs.drown.drowning.voileTwo],
+      2, {
+        y: -600,
+      },
+      3
     )
 
     // this.introTL.fromTo(
