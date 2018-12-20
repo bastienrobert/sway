@@ -1,0 +1,25 @@
+.Decision {
+  display: flex;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+  .dots {
+    position: absolute;
+    display: flex;
+    perspective: 100px;
+    will-change: transform;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $white;
+      margin-right: 60px;
+      cursor: pointer;
+    }
+  }
+}

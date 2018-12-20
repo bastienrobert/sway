@@ -12,6 +12,7 @@ const cx = classnames.bind(css)
 export default class Decision extends Component {
   componentDidMount() {
     this.initTL()
+    window.addEventListener('wheel', this.onMouseWheel)
     this.userAction = true
     this.tl.play()
   }
@@ -35,6 +36,10 @@ export default class Decision extends Component {
         onReverseComplete: this.resetChoices.bind(this)
       }
     )
+  }
+
+  onMouseWheel = e => {
+    e.deltaY < 0 ? console.log('UP') : console.log('DOWN')
   }
 
   onMouseEnter = choice => {
