@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { TweenMax } from 'gsap/all'
 
 import oeuvres from './oeuvres.js'
 
@@ -6,7 +7,6 @@ import Typography from 'components/Typography'
 import Decision from './Decision'
 
 import css from './styles.scss'
-import { TweenMax } from 'gsap/all'
 
 export default class Art extends Component {
   state = {

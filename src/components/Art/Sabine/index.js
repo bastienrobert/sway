@@ -1,6 +1,7 @@
 import React from 'react'
 import Oeuvre from '../Oeuvre'
 import { createElements } from 'utils/helpers'
+import GsapTools from 'gsap-tools'
 
 import timelines from './timelines'
 import elements from './elements'
@@ -15,6 +16,7 @@ export default class Sabine extends Oeuvre {
 
     return (
       <div className={css.Sabine}>
+        <GsapTools />
         {createElements(elements.dom, elements.opts.css, this.references)}
       </div>
     )
