@@ -118,6 +118,16 @@
 }
 
 .calle {
+<<<<<<< HEAD
+=======
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 100px;
+
+>>>>>>> b64fa98d45e07e0104dd0356cb93dd45262bd2ee
   .calleBackground,
   .calleOcean {
     position: absolute;
@@ -146,6 +156,7 @@
       background-size: cover;
       background-position: top;
       bottom: 0;
+      transform: translateZ(10px);
     }
 
     &One {
