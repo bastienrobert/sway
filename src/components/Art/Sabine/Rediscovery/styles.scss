@@ -132,10 +132,11 @@
     }
     &HautAP,
     &HautAP1 {
-      background-position: center;
+      background-position: center top;
       z-index: 1;
       mix-blend-mode: color-dodge;
       background-size: 20%;
+      transform:translate(15%,5%);
       background-image: url(assets/sabine/rediscovery/drown/drowning/hautAP.png);
     }
     &GauchePP,
