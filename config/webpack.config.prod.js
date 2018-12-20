@@ -1,6 +1,7 @@
 'use strict'
 
 const fs = require('fs')
+const autoprefixer = require('autoprefixer')
 const path = require('path')
 const webpack = require('webpack')
 const resolve = require('resolve')
@@ -307,7 +308,24 @@ module.exports = {
               },
               {
                 loader: require.resolve('css-loader'),
-                options: cssOptions
+                options: {
+                  modules: true,
+                  sourceMap: true,
+                  localIdentName: '[local]___[hash:base64:5]',
+                  importLoaders: 1,
+                  minimize: true,
+                  sourceMap: shouldUseSourceMap,
+                  alias: {
+                    src: path.resolve(__dirname, '../src')
+                  }
+                }
+              },
+              {
+                loader: require.resolve('sass-loader'),
+                options: {
+                  includePaths: ['./src'],
+                  data: '@import "config.scss";'
+                }
               },
               {
                 // Options for PostCSS as we reference these options twice
