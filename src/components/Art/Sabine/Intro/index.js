@@ -325,7 +325,7 @@ export default class Intro extends TimelineController {
         RAF.add(this.oceanParallax)
         this.oceanParallaxEnabled = true
         Emitter.on('resize', this.onOceanResize)
-        this.wavesTL.play(0)
+        this.wavesTL.play()
       },
       onPause: () => {
         this.wavesTL.restart()

@@ -17,9 +17,14 @@ export default class Outro extends TimelineController {
       paused: true
     })
 
-    // this.introTL.to(this.refs.drown.drowning.component, 1, {
-    //   autoAlpha: 0
-    // })
+    this.introTL.to(
+      this.refs.drown.drowning.component,
+      2,
+      {
+        autoAlpha: 0
+      },
+      5
+    )
 
     this.introTL.to(this.refs.cube, 2, {
       x: 100,

@@ -80,9 +80,12 @@ export default class Storm {
     // -> Show clouds component
     this.introTL.fromTo(
       this.refs.storm.breakbot.clouds.component,
-      2,
+      4,
       { autoAlpha: 0 },
-      { autoAlpha: 1 },
+      {
+        autoAlpha: 1,
+        ease: Expo.easeInOut
+      },
       0
     )
     this.introTL.fromTo(
@@ -94,7 +97,7 @@ export default class Storm {
       {
         autoAlpha: 1
       },
-      0
+      2
     )
 
     // -> Boat animation to go to the middle of the screen
@@ -285,8 +288,8 @@ export default class Storm {
 
   floattingParallax = () => {
     TweenMax.to(this.refs.storm.crash.floatting.woodThree, 0.5, {
-      xPercent: '+' + (-values.mouse.x / values.viewport.width) * 4,
-      yPercent: '+' + (values.mouse.y / values.viewport.height) * 2
+      xPercent: '+' + (values.mouse.x / values.viewport.width) * 4,
+      yPercent: '-' + (values.mouse.y / values.viewport.height) * 6
     })
     TweenMax.to(
       [
@@ -295,8 +298,8 @@ export default class Storm {
       ],
       0.5,
       {
-        xPercent: '+' + (values.mouse.x / values.viewport.width) * 4,
-        yPercent: '+' + (-values.mouse.y / values.viewport.height) * 2
+        xPercent: '-' + (values.mouse.x / values.viewport.width) * 4,
+        yPercent: '+' + (values.mouse.y / values.viewport.height) * 8
       }
     )
     TweenMax.to(
@@ -307,12 +310,12 @@ export default class Storm {
       0.5,
       {
         xPercent: '+' + (values.mouse.x / values.viewport.width) * 2,
-        yPercent: '+' + (values.mouse.y / values.viewport.height) * 2
+        yPercent: '+' + (values.mouse.y / values.viewport.height) * 4
       }
     )
     TweenMax.to(this.refs.storm.crash.floatting.sailTwo, 0.5, {
       xPercent: '+' + (values.mouse.x / values.viewport.width) * 2,
-      yPercent: '+' + (-values.mouse.y / values.viewport.height) * 4
+      yPercent: '-' + (values.mouse.y / values.viewport.height) * 4
     })
   }
 
@@ -474,7 +477,8 @@ export default class Storm {
         opacity: 1
       },
       {
-        opacity: 0
+        opacity: 0,
+        ease: Expo.InOut
       },
       0
     )
@@ -485,20 +489,22 @@ export default class Storm {
         opacity: 0
       },
       {
-        opacity: 1
+        opacity: 1,
+        ease: Expo.InOut
       },
-      0.2
+      0.1
     )
     this.seaLightTL.fromTo(
       this.refs.storm.crash.redSea.flashRedLight,
-      0.5,
+      0.2,
       {
         opacity: 0
       },
       {
-        opacity: 1
+        opacity: 1,
+        ease: Expo.InOut
       },
-      0.4
+      0.2
     )
   }
 

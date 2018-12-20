@@ -1,4 +1,6 @@
-import { TimelineMax } from 'gsap/all'
+import { TimelineMax, TweenMax, Expo } from 'gsap/all'
+import values from 'values'
+import RAF from 'utils/raf'
 
 export default class Drown {
   constructor(refs, introIsOver, pendingIsOver) {
@@ -13,8 +15,12 @@ export default class Drown {
   initIntroTL() {
     this.introTL = new TimelineMax({
       paused: true,
+      onStart: () => {
+        RAF.add(this.drowningParallax)
+      },
       onComplete: () => {
         this.introIsOver()
+        this.disableDrowningParallax()
         this.pendingTL.play()
       }
     })
@@ -45,56 +51,70 @@ export default class Drown {
       0
     )
 
+    this.introTL.fromTo(
+      [
+        this.refs.drown.blueSea.secondPointBlue,
+        this.refs.drown.blueSea.secondDarkBlue,
+        this.refs.drown.blueSea.secondDarkerBlue,
+        this.refs.drown.blueSea.secondBlue
+      ],
+      1,
+      {
+        autoAlpha: 1
+      },
+      {
+        repeat: 4,
+        yoyo: true,
+        autoAlpha: 0,
+        ease: Expo.InOut
+      },
+      2
+    )
+
     // Hide blueSea component
     this.introTL.to(
       this.refs.drown.blueSea.component,
-      2,
+      3,
       {
         autoAlpha: 0
       },
-      2
+      6
     )
 
     // Show drowning component
     this.introTL.fromTo(
       this.refs.drown.drowning.component,
-      1,
+      5,
       {
         autoAlpha: 0
       },
       {
-        autoAlpha: 1
+        autoAlpha: 1,
+        onComplete: () => {}
       },
-      4
+      8
     )
 
     // Transition to scene 2
     this.introTL.to(
       this.refs.drown.drowning.component,
-      5,
-      { 
-        scale: 1.7, 
-        force3D: false,
-        x: -550,
-        y: 300,
-      },
-      8
-    )
-    
-    this.introTL.to(
-      [this.refs.drown.drowning.voileOne,this.refs.drown.drowning.voileTwo],
-      2,
+      4,
       {
-        y:-600,
+        z: 50,
+        x: -380,
+        y: 250,
+        ease: Expo.easeInOut
       },
-      8
+      14
     )
+
     this.introTL.to(
       [this.refs.drown.drowning.voileOne, this.refs.drown.drowning.voileTwo],
-      2, {
-        y: -600,
+      2,
+      {
+        y: -600
       },
-      3
+      13
     )
 
     // this.introTL.fromTo(
@@ -137,5 +157,47 @@ export default class Drown {
         scale: 0.7
       }
     )
+  }
+
+  drowningParallax = () => {
+    TweenMax.to(
+      [
+        this.refs.drown.drowning.boisAP,
+        this.refs.drown.drowning.boisGauchePPOne,
+        this.refs.drown.drowning.boisRouge
+      ],
+      0.5,
+      {
+        xPercent: '-' + (values.mouse.x / values.viewport.width) * 8,
+        yPercent: '+' + (values.mouse.y / values.viewport.height) * 8
+      }
+    )
+    TweenMax.to(this.refs.drown.drowning.mask, 0.5, {
+      xPercent: '+' + (values.mouse.x / values.viewport.width) * 10,
+      yPercent: '-' + (values.mouse.y / values.viewport.height) * 5
+    })
+    TweenMax.to(
+      [this.refs.drown.drowning.voileOne, this.refs.drown.drowning.voileTwo],
+      0.5,
+      {
+        xPercent: '+' + (values.mouse.x / values.viewport.width) * 5,
+        yPercent: '+' + (values.mouse.y / values.viewport.height) * 8
+      }
+    )
+    TweenMax.to(
+      [
+        this.refs.drown.drowning.boisGauchePPTwo,
+        this.refs.drown.drowning.boisGaucheAP
+      ],
+      0.5,
+      {
+        xPercent: '-' + (values.mouse.x / values.viewport.width) * 8,
+        yPercent: '+' + (values.mouse.y / values.viewport.height) * 4
+      }
+    )
+  }
+
+  disableDrowningParallax = () => {
+    RAF.remove(this.drowningParallax)
   }
 }
