@@ -3,6 +3,12 @@
   @import './Intro/styles.scss';
   @import './Rediscovery/styles.scss';
   @import './Outro/styles.scss';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 
   .background {
     position: absolute;
@@ -23,9 +29,11 @@
 
   .boat {
     position: absolute;
-    bottom: 110px;
+    bottom: 0;
+    margin-bottom: 4.5%;
     width: 30%;
     max-width: 400px;
+    z-index: 0;
 
     .boatMatt {
       position: absolute;

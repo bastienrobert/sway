@@ -31,7 +31,7 @@ export default {
     {
       title: i18n.sabine.decisions[1].title,
       timelines: Rediscovery,
-      negative: false,
+      negative: true,
       choices: [
         {
           label: '4'

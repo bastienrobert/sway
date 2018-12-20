@@ -10,7 +10,6 @@ export default class Intro extends TimelineController {
     this.initBCRs()
     this.initIntroTL()
     this.initPendingTL()
-    this.initBoatTL()
     this.initOutTL()
 
     this.tls.push({
@@ -58,7 +57,17 @@ export default class Intro extends TimelineController {
           this.calleTL.play(0)
         }
       },
-      0
+      0.2
+    )
+
+    this.introTL.to(
+      this.refs.calle.component,
+      3,
+      {
+        scale: 1.5,
+        ease: Expo.easeIn
+      },
+      4
     )
 
     // Hide calle component
@@ -67,9 +76,7 @@ export default class Intro extends TimelineController {
       1,
       {
         autoAlpha: 0,
-        onComplete: () => {
-          this.calleTL.pause()
-        }
+        onComplete: () => this.calleTL.pause()
       },
       6
     )
@@ -79,10 +86,12 @@ export default class Intro extends TimelineController {
       this.refs.statue.component,
       1,
       {
-        autoAlpha: 0
+        autoAlpha: 0,
+        scale: 1
       },
       {
         autoAlpha: 1,
+        scale: 1.15,
         onStart: () => {
           RAF.add(this.cottonsParallax)
         }
@@ -96,6 +105,7 @@ export default class Intro extends TimelineController {
       1,
       {
         autoAlpha: 0,
+        scale: 1,
         onComplete: () => {
           this.disableCottonsParallax()
         }
@@ -118,8 +128,7 @@ export default class Intro extends TimelineController {
       this.refs.boat.component,
       4,
       {
-        autoAlpha: 0,
-        x: -100
+        autoAlpha: 0
       },
       {
         autoAlpha: 1,
@@ -234,8 +243,30 @@ export default class Intro extends TimelineController {
       0
     )
   }
+
   initBoatTL() {
-    this.boatTL = new TimelineMax({ paused: true })
+    this.wavesTL = new TimelineMax({
+      paused: true,
+      repeat: -1,
+      yoyo: true
+    })
+    this.boatTL = new TimelineMax({
+      paused: true,
+      onStart: () => this.wavesTL.play(0)
+    })
+
+    this.wavesTL.fromTo(
+      this.refs.boat.component,
+      1,
+      {
+        y: -5,
+        rotation: -2
+      },
+      {
+        y: 10,
+        rotation: 2
+      }
+    )
 
     this.boatTL.fromTo(
       this.refs.boat.component,
@@ -268,6 +299,8 @@ export default class Intro extends TimelineController {
       onRepeat: () => {
         if (this.pauseOnPendingComplete !== false) {
           this.disableOceanParallax()
+          this.wavesTL.restart()
+          this.wavesTL.pause()
           Emitter.off('resize', this.onOceanResize)
           this.pendingTL.pause()
           this.pendingIsOver()
@@ -283,34 +316,48 @@ export default class Intro extends TimelineController {
 
   initOutTL() {
     this.initOceanTL()
+    this.initBoatTL()
 
     this.outTL = new TimelineMax({
-      paused: true,
       repeat: -1,
       yoyo: true,
       onStart: () => {
-        this.oceanTL.play()
-        this.boatTL.play()
         RAF.add(this.oceanParallax)
         this.oceanParallaxEnabled = true
         Emitter.on('resize', this.onOceanResize)
+        this.wavesTL.play(0)
       },
       onPause: () => {
-        this.oceanTL.restart()
-        this.oceanTL.pause()
+        this.wavesTL.restart()
+        this.wavesTL.pause()
       }
     })
-
-    TweenMax.set(this.refs.background, { backgroundColor: '#7392e0' })
 
     this.outTL.fromTo(
       this.refs.cube,
       1,
-      { scale: 0.9 },
-      { scale: 1.1, rotation: 0 }
+      {
+        rotation: 0
+      },
+      {
+        rotation: 10
+      }
+    )
+
+    TweenMax.set(this.refs.background, { backgroundColor: '#7392e0' })
+
+    TweenMax.fromTo(
+      this.refs.boat.component,
+      1,
+      {
+        autoAlpha: 0,
+        x: (values.viewport.width / 3) * 2 - this.BCRs.boat.width / 2
+      },
+      {
+        autoAlpha: 1
+      }
     )
   }
-
 
   cottonsParallax = () => {
     TweenMax.to(
@@ -362,13 +409,14 @@ export default class Intro extends TimelineController {
   }
 
   disableOceanParallax = () => {
-
     this.oceanParallaxEnabled = false
     RAF.remove(this.oceanParallax)
   }
 
   onOceanResize = () => {
     this.BCRs.boat = this.refs.boat.component.getBoundingClientRect()
+    const { component, ...waves } = this.refs.ocean.waves
+    TweenMax.to(Object.values(waves), 1, { x: 0, y: 0 })
     TweenMax.set(this.refs.boat.component, {
       x: (values.viewport.width / 3) * 2 - this.BCRs.boat.width / 2
     })
