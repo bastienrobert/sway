@@ -91,14 +91,14 @@ export default class Art extends Component {
     return (
       <div className={css.Art}>
         <Typography type="title" className={css.title}>
-          <h1 ref="title">{title}</h1>
+          <h1 ref="title"></h1>
         </Typography>
         <button
           ref="getStarted"
           className={css.getStarted}
           onClick={this.onGetStarted}>
-          Get started
-        </button>
+          start
+          </button>
         <button
           ref="gameOver"
           className={css.gameOver}
