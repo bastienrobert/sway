@@ -54,7 +54,7 @@ export default class Storm {
       this.refs.ocean.waves.component,
       1,
       {
-        y: 200
+        autoAlpha:0
       },
       0.5
     )
@@ -126,12 +126,30 @@ export default class Storm {
     this.introTL.fromTo(
       this.refs.storm.breakbot.ocean.component,
       2,
-      { autoAlpha: 0, y: 180 },
-      { autoAlpha: 1, y: 0, ease: Expo.easeInOut },
+      { autoAlpha: 0},
+      { autoAlpha: 1, ease: Expo.easeInOut },
       0
     )
 
-    // Hide breakbot component
+    this.introTL.to(
+      this.refs.boat.component,
+      5,{
+        rotation:-60,
+        y:400
+      },
+      8
+    )
+    this.introTL.to(
+      this.refs.boat.matt,
+      6, {
+        rotation: 45,
+        y: 400,
+        x:100
+      },
+      8
+    )
+
+    // -> Hide breakbot component
     this.introTL.to(
       this.refs.storm.breakbot.component,
       1,

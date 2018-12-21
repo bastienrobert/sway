@@ -62,12 +62,12 @@ export default class Intro extends TimelineController {
 
     this.introTL.to(
       this.refs.calle.component,
-      3,
+      2,
       {
         scale: 1.5,
         ease: Expo.easeIn
       },
-      4
+      7
     )
 
     // Hide calle component
@@ -78,7 +78,7 @@ export default class Intro extends TimelineController {
         autoAlpha: 0,
         onComplete: () => this.calleTL.pause()
       },
-      6
+      8
     )
 
     // -> Show statue component
@@ -96,7 +96,7 @@ export default class Intro extends TimelineController {
           RAF.add(this.cottonsParallax)
         }
       },
-      6
+      8
     )
 
     // Hide statue component
@@ -110,7 +110,7 @@ export default class Intro extends TimelineController {
           this.disableCottonsParallax()
         }
       },
-      12
+      15
     )
 
     // -> Show ocean component
@@ -120,7 +120,7 @@ export default class Intro extends TimelineController {
       {
         autoAlpha: 1
       },
-      12
+      15
     )
 
     // Animate boat to middle of the screen
@@ -158,6 +158,8 @@ export default class Intro extends TimelineController {
         x: -40,
         z: 15,
         rotation: -1,
+        repeat:3,
+        yoyo:true,
         ease: Power1.easeInOut
       },
       0.5
@@ -178,7 +180,7 @@ export default class Intro extends TimelineController {
 
     this.calleTL.fromTo(
       this.refs.calle.metalBox,
-      2,
+      3,
       {
         z: 10,
         x: -20,
@@ -190,6 +192,8 @@ export default class Intro extends TimelineController {
         x: 20,
         y: -10,
         rotation: 0.75,
+        repeat:2,
+        yoyo:true,
         ease: Power1.easeInOut
       },
       0
@@ -198,9 +202,9 @@ export default class Intro extends TimelineController {
     const { component, ...clouds } = this.refs.calle.clouds
     this.calleTL.staggerFromTo(
       Object.values(clouds),
-      2.25,
+      4,
       { x: -50 },
-      { x: 50, ease: Power1.easeInOut },
+      { x: 50, ease: Power1.easeInOut, repeat:2, yoyo: true },
       0.5,
       0
     )
@@ -259,11 +263,11 @@ export default class Intro extends TimelineController {
       this.refs.boat.component,
       1,
       {
-        y: -5,
+        y: -40,
         rotation: -2
       },
       {
-        y: 10,
+        y: -25,
         rotation: 2
       }
     )
@@ -348,14 +352,23 @@ export default class Intro extends TimelineController {
 
     TweenMax.fromTo(
       this.refs.boat.component,
-      1,
+      2,
       {
         autoAlpha: 0,
-        x: (values.viewport.width / 3) * 2 - this.BCRs.boat.width / 2
+        x: (values.viewport.width / 5) * 2 - this.BCRs.boat.width / 2
       },
       {
         autoAlpha: 1
-      }
+      },
+      0
+    )
+
+    TweenMax.to(
+      this.refs.boat.component,
+      5, {
+        x: (values.viewport.width / 3) * 2 - this.BCRs.boat.width / 2
+      },
+      3
     )
   }
 
