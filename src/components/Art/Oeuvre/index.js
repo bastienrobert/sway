@@ -83,7 +83,7 @@ export default class Oeuvre extends Component {
 
   decisionSelected = choice => {
     if (!this.currentTLs.tls[choice]) return
-    this.previousTLs.pauseOnPendingComplete = choice
+    this.previousTLs.pauseOnPendingComplete = this.previousDecision
     this.selected = choice
   }
 
@@ -106,7 +106,7 @@ export default class Oeuvre extends Component {
     }
   }
 
-  gameOver() {
+  gameOver = () => {
     const lastDecision = this.props.decisions[this.props.decisions.length - 1]
     if (!lastDecision) return
     const choice = lastDecision.choice

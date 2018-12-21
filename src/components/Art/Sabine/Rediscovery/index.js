@@ -8,11 +8,15 @@
 import TimelineController from 'components/Art/TimelineController'
 
 import Drown from './Drown'
+import Desert from './Desert'
+import Forest from './Forest'
 
 export default class Rediscovery extends TimelineController {
   initTLs() {
     const drown = new Drown(this.refs, this.introIsOver, this.pendingIsOver)
-    this.tls = [drown, drown, drown]
+    const desert = new Desert(this.refs, this.introIsOver, this.pendingIsOver)
+    const forest = new Forest(this.refs, this.introIsOver, this.pendingIsOver)
+    this.tls = [drown, desert, forest]
   }
 
   set pauseOnPendingComplete(id) {

@@ -8,11 +8,15 @@
 import TimelineController from 'components/Art/TimelineController'
 
 import Storm from './Storm'
+import Fire from './Fire'
+import Attack from './Attack'
 
 export default class Disappearance extends TimelineController {
   initTLs() {
     const storm = new Storm(this.refs, this.introIsOver, this.pendingIsOver)
-    this.tls = [storm, storm, storm]
+    const fire = new Fire(this.refs, this.introIsOver, this.pendingIsOver)
+    const attack = new Attack(this.refs, this.introIsOver, this.pendingIsOver)
+    this.tls = [storm, fire, attack]
   }
 
   set pauseOnPendingComplete(id) {

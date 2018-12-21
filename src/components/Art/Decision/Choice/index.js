@@ -16,7 +16,7 @@ export default class Choice extends Component {
 
     this.tl.fromTo(
       this.refs.jauge,
-      2,
+      6,
       {
         strokeDasharray: '0 305'
       },
