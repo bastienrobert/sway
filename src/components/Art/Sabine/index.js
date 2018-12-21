@@ -7,6 +7,7 @@ import fire from 'assets/sabine/disappearance/fire.mp4'
 import attack from 'assets/sabine/disappearance/attack.mp4'
 import desert from 'assets/sabine/rediscovery/desert.mp4'
 import forest from 'assets/sabine/rediscovery/forest.mp4'
+import outro from 'assets/sabine/outro.mp4'
 
 import timelines from './timelines'
 import elements from './elements'
@@ -43,6 +44,11 @@ export default class Sabine extends Oeuvre {
           className={css.video}
           ref={el => el && (this.references.poc.forest = el)}
           src={forest}
+        />
+        <video
+          className={css.video}
+          ref={el => el && (this.references.outro = el)}
+          src={outro}
         />
       </div>
     )

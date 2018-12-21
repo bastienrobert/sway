@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import timelines from '../Sabine/timelines'
 
-import { add } from 'gsap-tools'
+// import { add } from 'gsap-tools'
 
 export default class Oeuvre extends Component {
   intro = null
@@ -45,15 +45,15 @@ export default class Oeuvre extends Component {
     this.tls = [this.intro, ...this.decisions, this.outro]
 
     // NEED TO BE REMOVED
-    add(this.intro.outTL, 'INTRO - Start')
-    add(this.intro.introTL, 'INTRO - Intro')
-    add(this.intro.pendingTL, 'INTRO - Pending')
-    this.decisions.forEach((decision, i) => {
-      add(decision.tls[0].introTL, `DECISION ${i} - Intro`)
-      add(decision.tls[0].pendingTL, `DECISION ${i} - Pending`)
-    })
-    add(this.outro.introTL, 'OUTRO - Intro')
-    add(this.outro.pendingTL, 'OUTRO - Pending')
+    // add(this.intro.outTL, 'INTRO - Start')
+    // add(this.intro.introTL, 'INTRO - Intro')
+    // add(this.intro.pendingTL, 'INTRO - Pending')
+    // this.decisions.forEach((decision, i) => {
+    //   add(decision.tls[0].introTL, `DECISION ${i} - Intro`)
+    //   add(decision.tls[0].pendingTL, `DECISION ${i} - Pending`)
+    // })
+    // add(this.outro.introTL, 'OUTRO - Intro')
+    // add(this.outro.pendingTL, 'OUTRO - Pending')
   }
 
   shouldComponentUpdate(prevProps) {
