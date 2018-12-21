@@ -102,7 +102,7 @@ export default class Drown {
       {
         z: 50,
         x: -380,
-        y: 250,
+        y: 220,
         ease: Expo.easeInOut
       },
       14
@@ -114,7 +114,7 @@ export default class Drown {
       {
         y: -600
       },
-      13
+      14
     )
 
     // this.introTL.fromTo(
